@@ -1,0 +1,44 @@
+{
+    "$schema": "https://release-1256208672.cos.ap-guangzhou.myqcloud.com/dbclient/schema.json",
+    "database": {
+        "1668530755249": {
+            "port": 25060,
+            "user": "doadmin",
+            "dbType": "PostgreSQL",
+            "database": "defaultdb",
+            "name": "PoolsBox",
+            "advance": {
+                "safeUpdateMode": false,
+                "groupingTables": false,
+                "showForeignKey": false,
+                "trimCountSQL": false
+            },
+            "connectTimeout": "100000",
+            "includeDatabases": "defaultdb",
+            "useConnectionString": true,
+            "connectionUrl": "postgresql://doadmin:AVNS_D9WkxPzfMIEONKSdxS-@travel-do-user-12843717-0.b.db.ondigitalocean.com:25060/defaultdb",
+            "usingSSH": false,
+            "ssh": {
+                "host": "",
+                "privateKeyPath": null,
+                "port": 22,
+                "username": "root",
+                "type": "password",
+                "connectTimeout": 5000
+            },
+            "global": false,
+            "savePassword": "Forever",
+            "hideSystemSchema": true,
+            "readonly": false,
+            "sort": 11,
+            "useSSL": false,
+            "encrypt": false,
+            "authType": "default",
+            "esAuth": "none",
+            "showHidden": true,
+            "srv": false,
+            "key": "1668530755249",
+            "connectionKey": "database.connections"
+        }
+    }
+}
