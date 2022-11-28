@@ -8,9 +8,7 @@ function App() {
 
     <div>
       <Header />
-      {/* <div className="d-flex align-items-center justify-content-center vh-100 container"> */}
-        <Urls />
-      {/* </div> */}
+      <Urls />
       <Footer />
     </div>
 

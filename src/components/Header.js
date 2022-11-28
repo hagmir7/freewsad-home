@@ -1,7 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
+
 
 export default function Header() {
+  const {User} = React.useContext(AuthContext);
+
   return (
     <header className="navbar-light position-sticky top-0 header-static border-bottom bg-white">
       <div className="navbar navbar-expand-lg p-0">
@@ -19,9 +23,14 @@ export default function Header() {
               <Link to='/books' className='nav-item mx-3' >
                 <img title="Books" loading="eager" className="nav-icon" src="/assets/img/svg/book-1.svg" alt="Books" width="30px" height="30px" />
               </Link>
-              <Link to='/profile' className='nav-item mx-3' >
-                <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
-              </Link>
+              {
+                User ?
+                  <Link to='/profile' className='nav-item mx-3' >
+                    <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
+                  </Link>
+                  : ''
+              }
+              
               <Link to='/contact' className='nav-item mx-3' >
                 <img title="Contact" loading="eager" className="nav-icon" src="/assets/img/svg/support.svg" alt="Contact" width="30px" height="30px" />
               </Link>
@@ -31,8 +40,8 @@ export default function Header() {
             </nav>
           </div>
           <div className="d-none d-lg-block mt-1">
-            <a className="btn-primary btn rounded-pill mx-2"  href="https://studio.freewsad.com/accounts/login">Log in</a>
-            <a className="border btn rounded-pill mx-2" href="https://studio.freewsad.com/accounts/register">Register</a>
+            <Link className="btn-primary btn rounded-pill mx-2"  to="/accounts/login">Log in</Link>
+            <Link className="border btn rounded-pill mx-2" to="/accounts/register">Register</Link>
           </div>
             <Link className="navbar-toggler border-0 mt-2 p-0" to="/menu">
               <span className="d-none">Menu</span><span className="navbar-toggler-icon"></span>

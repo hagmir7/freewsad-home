@@ -14,11 +14,6 @@ export default function PostCard(props) {
                 <Link to={`/p/${props.slug}`}>
                     <div className="card-title h5 my-0 py-0 text-black">{props.title}</div>
                 </Link>
-                <p className="card-text">
-                    <small className="text-muted">
-                        <span className="mr-2 h6">Nov 25, 2022 - 19:23</span>
-                    </small>
-                </p>
             </div>
         </div>
     )

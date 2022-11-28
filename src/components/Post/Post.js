@@ -53,7 +53,7 @@ export default function Post() {
                     }
                     
                 </div>
-                <div className="col-12 col-md-5 col-lg-4 col-xl-4 position-relative" style={{ height: 'auto!important' }}>
+                <div className="col-12 col-md-5 col-lg-4 col-xl-4 position-relative mb-3" style={{ height: 'auto!important' }}>
                     <div className="position-sticky" style={{ top: "55px", height: " auto !important" }}>
                         <div className="p-2 mt-3 bg-light card shadow-sm border"><span className="fst-italic h4 p-1">Copyrights</span>
                             <div>We respect the property rights of others, and are always careful not to infringe on their rights, so

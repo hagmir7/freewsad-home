@@ -6,6 +6,7 @@ import SEO from '../components/SEO/SEO';
 
 
 
+
 export default function Home() {
 
   return (
@@ -24,7 +25,7 @@ export default function Home() {
         type='website'
         image='/favicon.webp'
         url="https://www.freewsad.com"
-        canonical="/" />
+         />
     </div>
   )
 }
