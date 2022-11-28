@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+
 import ProfileCardAbout from '../components/Profile/ProfileCardAbout'
 import ProfileUpdate from './ProfileUpdate'
 

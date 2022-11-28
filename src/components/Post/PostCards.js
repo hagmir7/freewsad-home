@@ -1,5 +1,4 @@
 import React from 'react'
-import axios from 'axios';
 import PostCard from './PostCardComponent'
 import PostCardLoading from './PostCardLoading'
 import api from '../../api/API';
@@ -20,7 +19,6 @@ export default function PostCards() {
     const [data, setData] = React.useState('');
 
     const [page, setPage] = React.useState(1);
-    const [hasNext, setHasNext] = React.useState(true);
 
     const loadMore = () => {
         setPage(currnetPage => {
@@ -67,7 +65,7 @@ export default function PostCards() {
 
                 })
             } else {
-                setHasNext(false)
+      
                 setSpener(true);
 
             }
