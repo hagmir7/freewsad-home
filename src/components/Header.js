@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 
 export default function Header() {
-  const {User} = React.useContext(AuthContext);
+  const { User, logout } = React.useContext(AuthContext);
 
   return (
     <header className="navbar-light position-sticky top-0 header-static border-bottom bg-white">
@@ -23,29 +23,50 @@ export default function Header() {
               <Link to='/books' className='nav-item mx-3' >
                 <img title="Books" loading="eager" className="nav-icon" src="/assets/img/svg/book-1.svg" alt="Books" width="30px" height="30px" />
               </Link>
-              {
-                User ?
-                  <Link to='/profile' className='nav-item mx-3' >
-                    <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
-                  </Link>
-                  : ''
-              }
-              
+
+
               <Link to='/contact' className='nav-item mx-3' >
                 <img title="Contact" loading="eager" className="nav-icon" src="/assets/img/svg/support.svg" alt="Contact" width="30px" height="30px" />
               </Link>
               <Link to='/blog' className='nav-item mx-3' >
                 <img title="Blog" loading="eager" className="nav-icon" src="/assets/img/svg/post.svg" alt="Blog" width="30px" height="30px" />
               </Link>
+              {
+                User ?
+                  <>
+                    <Link to={User.username} className='nav-item mx-3' >
+                      <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
+                    </Link>
+
+                    <span onClick={logout} className='nav-item mx-3' >
+                      <img title="Logout" loading="eager" className="nav-icon" src="/assets/img/svg/logout.svg" alt="Books" width="30px" height="30px" />
+                    </span>
+
+                  </>
+                  : ''
+              }
             </nav>
           </div>
-          <div className="d-none d-lg-block mt-1">
-            <Link className="btn-primary btn rounded-pill mx-2"  to="/accounts/login">Log in</Link>
-            <Link className="border btn rounded-pill mx-2" to="/accounts/register">Register</Link>
+          <div className="d-none d-lg-block my-1">
+            {
+              !User ?
+                <>
+                  <Link className="btn-primary btn rounded-pill mx-2" to="/accounts/login">Log in</Link>
+                  <Link className="border btn rounded-pill mx-2" to="/accounts/register">Register</Link>
+                </>
+                :
+
+                <div className="dropdown d-lg-block d-none bg-white">
+                  <Link to={User.username} className="ant-dropdown-trigger">
+                    <img src={User.avatar} width="40px" loading="eager" height="40" className="cover border rounded-pill pointer" title={User.username} alt={User.username}/>
+                  </Link>
+                </div>
+            }
+
           </div>
-            <Link className="navbar-toggler border-0 mt-2 p-0" to="/menu">
-              <span className="d-none">Menu</span><span className="navbar-toggler-icon"></span>
-            </Link>
+          <Link className="navbar-toggler border-0 mt-2 p-0" to="/menu">
+            <span className="d-none">Menu</span><span className="navbar-toggler-icon"></span>
+          </Link>
         </div>
       </div>
     </header>

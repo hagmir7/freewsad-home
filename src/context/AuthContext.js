@@ -1,6 +1,5 @@
-import jwtDecode from 'jwt-decode';
 import React from 'react';
-import { resolvePath, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import API from '../api/API';
 
 import jwt_decode from "jwt-decode";
@@ -23,23 +22,29 @@ export const AuthProvider = ({ children }) => {
     const [Message, setMessage] = React.useState('');
 
 
-    const [User, setUser] = React.useState(false)
 
 
     // const LocalToken = localStorage.getItem('authTokens') ? JSON.parse(localStorage.getItem('authTokens')) : null;
     const DecodeToken = localStorage.getItem('authTokens') ? jwt_decode(localStorage.getItem('authTokens')) : null;
 
+    let [authTokens, setAuthTokens] = React.useState(() => DecodeToken);
+
+    const [User, setUser] = React.useState(authTokens)
 
     const getUser = async () => {
-        await API.get(`user/id/${DecodeToken.id}`, {
+       if(DecodeToken !== null){
+        await API.get(`user/${DecodeToken.username}`, {
             headers: {
                 "Content-Type": 'application/json'
             }
         }).then(respons => {
-            setUser({...respons.data[0], ...respons.data[1]})
+            setUser({ ...respons.data[0], ...respons.data[1] })
         }).catch(error => {
             console.log(error)
         })
+       }else{
+        setUser(null)
+       }
     }
 
 
@@ -111,12 +116,24 @@ export const AuthProvider = ({ children }) => {
     }
 
 
+    const logout = () => {
+        setAuthTokens(null)
+        // setUser(null)
+        localStorage.removeItem('authTokens')
+        
+    history('/accounts/login');
+
+    }
+
+
     let contextData = {
         login: LoinUser,
         sniper: sniper,
         Message: Message,
         register: register,
-        User: User
+        User: User,
+        logout: logout,
+        authTokens, authTokens
 
     }
 
@@ -124,7 +141,7 @@ export const AuthProvider = ({ children }) => {
 
     React.useEffect(() => {
         getUser()
-    }, [])
+    }, [DecodeToken, User])
 
     return (
         <AuthContext.Provider value={contextData} >

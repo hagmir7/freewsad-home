@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const LoadingSingle = () => {
+export const LoadingSingle = () => {
     return (
         <div className='col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-3'>
             <div className="border-0 loading">

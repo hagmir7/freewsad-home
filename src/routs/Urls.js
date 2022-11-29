@@ -21,7 +21,7 @@ export default function Urls() {
           <Route path='/blog' element={<Blog />} />
           <Route path="/books" element={<Books />} />
           <Route path='/contact' element={<Contact />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/:username' element={<Profile />} />
           <Route path='*' element={<NotFound />} />
           <Route path='/accounts/login' element={<Login />} />
           <Route path='/accounts/register' element={<Register />} />
