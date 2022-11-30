@@ -11,15 +11,19 @@ import ProfileUpdate from './ProfileUpdate';
 export default function Profile() {
 
 
-  const [update, setUpdate] = React.useState(false)
-  const { username } = useParams()
-  const [user, setUser] = React.useState(null)
-  const [ result, setResult] = React.useState(true)
+
+
+  const [update, setUpdate] = React.useState(false);
+  const { username } = useParams();
+  const [user, setUser] = React.useState(null);
+  const [ result, setResult] = React.useState(true);
+
 
 
   React.useEffect(() => {
     getUser()
   }, [username])
+
 
   const getUser = async () => {
     await API.get(`user/${username}`, {

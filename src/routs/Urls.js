@@ -11,6 +11,7 @@ import Profile from '../pages/Profile';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import { Book } from '../pages/Book';
+import About from '../pages/About';
 
 export default function Urls() {
   return (
@@ -27,6 +28,7 @@ export default function Urls() {
           <Route path='/accounts/login' element={<Login />} />
           <Route path='/accounts/register' element={<Register />} />
           <Route path='/book/:id' element={<Book />} />
+          <Route path='/about' element={<About />} />
         </Routes>
 
     </div>

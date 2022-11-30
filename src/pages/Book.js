@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import API from '../api/API'
 import GoogleAd from '../components/ads/GoogleAd';
 import PostCards from '../components/Post/PostCards';
@@ -11,6 +11,8 @@ export const Book = () => {
     React.useEffect(() => {
         getBook();
     })
+
+    const history = useNavigate()
     const { id } = useParams();
     const [data, setData] = React.useState(null)
 
@@ -20,10 +22,9 @@ export const Book = () => {
                 'Content-Type': 'application/json'
             }
         }).then(respons => {
-            console.log(respons)
             setData(respons.data)
         }).catch(error => {
-            console.log(error)
+            history('/')
         })
     }
     return (
