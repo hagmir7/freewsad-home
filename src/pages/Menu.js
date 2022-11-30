@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
 
 export default function Menu() {
@@ -7,6 +8,14 @@ export default function Menu() {
     const { User, logout } = React.useContext(AuthContext);
     return (
         <div className="container mt-3">
+            <SEO
+                title='Menu - Freewsad'
+                description="You can enjoy the Topics and Courses you love and download the original content, and share it all with your friends in FreeWsad."
+                name='freewsad.com'
+                type='website'
+                image='/favicon.webp'
+                url="https://www.freewsad.com/menu"
+                canonical="/menu" />
             <div className="row justify-content-center">
                 <div className="col-12 col-md-6 col-lg-6 col-xl-6">
                     <div className="list-group">
@@ -22,7 +31,7 @@ export default function Menu() {
                         <Link className="list-group-item list-group-item-action" to="/books"><img src="/assets/img/svg/book.svg" alt="Books" width="30px" />&nbsp; Books</Link>
                         <Link className="list-group-item list-group-item-action" to="/about"><img src="/assets/img/svg/info.svg" alt="About Us" width="30px" />&nbsp; About Us</Link>
                         <Link className="list-group-item list-group-item-action" to="/contact"><img src="/assets/img/svg/contact.svg" alt="Contact Us" width="30px" />&nbsp; Contact Us</Link>
-                        {/* <Link className="list-group-item list-group-item-action" to="/policy"><img src="/assets/img/svg/privacy.svg" alt="Privacy Policy" width="30px" />&nbsp; Privacy Policy</Link> */}
+                        <Link className="list-group-item list-group-item-action" to="/privacy"><img src="/assets/img/svg/privacy.svg" alt="Privacy Policy" width="30px" />&nbsp; Privacy Policy</Link>
                         {/* <Link className="list-group-item list-group-item-action" to="/language"><img src="/assets/img/svg/location.svg" alt="Language" width="30px" />&nbsp; Language</Link> */}
                         {
                             !User ?

@@ -1,8 +1,17 @@
 import React from 'react'
+import SEO from '../components/SEO/SEO'
 
 export default function About() {
     return (
         <div className="container">
+            <SEO
+                title='About Us - Freewsad'
+                description="You can enjoy the Topics and Courses you love and download the original content, and share it all with your friends in FreeWsad."
+                name='freewsad.com'
+                type='website'
+                image='/favicon.webp'
+                url="https://www.freewsad.com/about"
+                canonical="/about" />
             <div className="row d-flex justify-content-center my-3">
                 <div className='card col-md-8 shadow-sm p-3'>
                     <h1 className="h4">About Us</h1>

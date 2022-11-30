@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
 
 export default function Register() {
@@ -12,6 +13,14 @@ export default function Register() {
     })
     return (
         <div className="container mt-3">
+            <SEO
+                title='Register - Freewsad'
+                description="You can enjoy the Topics and Courses you love and download the original content, and share it all with your friends in FreeWsad."
+                name='freewsad.com'
+                type='website'
+                image='/favicon.webp'
+                url="https://www.freewsad.com/accounts/register"
+                canonical="/accounts/register" />
             <div className="row d-flex justify-content-center w-100">
                 <div className="text-center mb-1">
                     <img src="/favicon.webp" alt="Freewsa" width="70px" height="auto" />
