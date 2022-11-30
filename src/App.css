@@ -83,3 +83,32 @@ p a img,
     height: 300px;
 }
 
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) { 
+    
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) { 
+    .book-img{
+        width: 200px!important;
+    }
+ }
+
+/* // Large devices (desktops, 992px and up) */
+@media (max-width: 992px) { 
+    .book-img{
+        width: 250px!important;
+    }
+ }
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (max-width: 1200px) { 
+    
+ }
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (max-width: 1400px) { 
+    
+ }

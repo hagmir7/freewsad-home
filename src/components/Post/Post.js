@@ -4,6 +4,7 @@ import PostCards from './PostCards';
 import PostDetailLoading from './PostDetailLoading';
 import SEO from '../SEO/SEO';
 import API from '../../api/API';
+import GoogleAd from '../ads/GoogleAd';
 
 export default function Post() {
     const { slug } = useParams();
@@ -37,9 +38,11 @@ export default function Post() {
                     {
                         data === null ? <PostDetailLoading /> :
                         <article className="blog-post" style={{ height: 'auto!important' }}>
+                        <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012"/>
                         <h1 dir="auto" className="blog-post-title h4 mt-2">{data.title}</h1>
                         <p dir="auto" className="text-left h6 text-muted">At {data.date} </p>
                         <div dangerouslySetInnerHTML={{ __html: data.body }} />
+                        <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012"/>
                         <SEO
                             title={data.title}
                             description={data.description.slice(150)}
@@ -55,7 +58,9 @@ export default function Post() {
                 </div>
                 <div className="col-12 col-md-5 col-lg-4 col-xl-4 position-relative mb-3" style={{ height: 'auto!important' }}>
                     <div className="position-sticky" style={{ top: "55px", height: " auto !important" }}>
-                        <div className="p-2 mt-3 bg-light card shadow-sm border"><span className="fst-italic h4 p-1">Copyrights</span>
+                        <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012"/>
+                        <div className="p-2 mt-3 bg-light card shadow-sm border">
+                            <span className="fst-italic h4 p-1">Copyrights</span>
                             <div>We respect the property rights of others, and are always careful not to infringe on their rights, so
                                 authors and publishing houses have the right to demand that an article or book download link be removed from
                                 the site. If you find an article or book of yours and do not agree to the posting of a download link, or you
