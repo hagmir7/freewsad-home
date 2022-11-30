@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PostCards from './PostCards';
 import PostDetailLoading from './PostDetailLoading';
 import SEO from '../SEO/SEO';
@@ -64,10 +64,10 @@ export default function Post() {
                             <div>We respect the property rights of others, and are always careful not to infringe on their rights, so
                                 authors and publishing houses have the right to demand that an article or book download link be removed from
                                 the site. If you find an article or book of yours and do not agree to the posting of a download link, or you
-                                have a suggestion or complaint, write to us through the <a href="/contact" target="_blank">Contact Us
-                                </a>, or by e-mail at: <a href="mailto:supprot@freewsad.com" target="_blank">supprot@freewsad.com.</a>
+                                have a suggestion or complaint, write to us through the <Link to="/contact" >Contact Us
+                                </Link>, or by e-mail at: <a href="mailto:supprot@freewsad.com">supprot@freewsad.com.</a>
                             </div>
-                            <a href="/page/copyrights-sxrmt">Read More</a>
+                            <Link to="/about">Read More</Link>
                         </div>
 
                     </div>

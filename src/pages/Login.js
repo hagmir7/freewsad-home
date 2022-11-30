@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import AuthContext from '../context/AuthContext'
 
 export default function Login() {
@@ -42,7 +42,7 @@ export default function Login() {
             </div>
             <div className="row d-flex justify-content-center w-100 mt-3">
                 <div className="col-md-5 card shadow-sm p-4 text-center">
-                    <p className="m-0">Not yet registered ? <a className="text-info" href="/accounts/register/">Create your account</a></p>
+                    <p className="m-0">Not yet registered ? <Link className="text-info" to="/accounts/register/">Create your account</Link></p>
                 </div>
             </div>
         </div>

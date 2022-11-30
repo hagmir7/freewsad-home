@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 export default function Register() {
@@ -38,7 +38,7 @@ export default function Register() {
             </div>
             <div className="row d-flex justify-content-center w-100 mt-3">
                 <div className="col-md-5 card shadow-sm p-4 text-center">
-                    <p className="m-0">Already have an account ? <a className="text-info" href="/accounts/login">Login</a></p>
+                    <p className="m-0">Already have an account ? <Link className="text-info" to="/accounts/login">Login</Link></p>
                 </div>
             </div>
         </div>

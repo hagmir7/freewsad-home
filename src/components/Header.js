@@ -38,7 +38,7 @@ export default function Header() {
                       <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
                     </Link>
 
-                    <span onClick={logout} className='nav-item mx-3' >
+                    <span onClick={logout} className='nav-item mx-3 pointer' >
                       <img title="Logout" loading="eager" className="nav-icon" src="/assets/img/svg/logout.svg" alt="Books" width="30px" height="30px" />
                     </span>
 
