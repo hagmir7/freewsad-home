@@ -118,7 +118,6 @@ export const AuthProvider = ({ children }) => {
 
     const logout = () => {
         setAuthTokens(null)
-        // setUser(null)
         localStorage.removeItem('authTokens')
         
     history('/accounts/login');
@@ -141,7 +140,7 @@ export const AuthProvider = ({ children }) => {
 
     React.useEffect(() => {
         getUser()
-    }, [DecodeToken, User])
+    }, [history])
 
     return (
         <AuthContext.Provider value={contextData} >

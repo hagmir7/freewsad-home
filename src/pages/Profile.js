@@ -22,8 +22,8 @@ export default function Profile() {
 
 
   React.useEffect(() => {
-    getUser()
-  }, [username])
+    getUser();
+  }, [])
 
 
   const getUser = async () => {
@@ -51,7 +51,7 @@ export default function Profile() {
               <div className="card">
                 {
                   user ? <>
-                    <ProfileCard firstName={user.first_name} lastName={user.last_name} bio={user.bio} />
+                    <ProfileCard image={user.avatar} firstName={user.first_name} lastName={user.last_name} bio={user.bio} />
                     <SEO
                       title={`${user.first_name} ${user.last_name} - Freewsad`}
                       description="You can enjoy the Topics and Courses you love and download the original content, and share it all with your friends in FreeWsad."

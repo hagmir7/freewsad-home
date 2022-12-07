@@ -6,9 +6,11 @@ export default function Search() {
     React.useEffect(() => {
         if (window.innerWidth > 900) {
             focus.current.focus()
-
         }
     }, [])
+
+
+    
 
 
 
