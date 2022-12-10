@@ -50,6 +50,7 @@ export default function PostCards() {
             },
             params: { page: page_number }
         }).then(respons => {
+            console.log(respons.data)
             if (respons.data.has_next) {
                 setData(prevList => {
                     setSpener(false);
@@ -57,7 +58,7 @@ export default function PostCards() {
                         if (respons.data.data.length === index + 1) {
                             return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.image ? item.image : item.imageURL} slug={item.slug} />)
                         } else {
-                            return (<PostCard title={item.title} key={item.slug} image={item.image ? item.title : item.imageURL} slug={item.slug} />)
+                            return (<PostCard title={item.title} key={item.slug} image={item.image ? item.image : item.imageURL} slug={item.slug} />)
                         }
                     }
 
