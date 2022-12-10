@@ -55,7 +55,7 @@ export default function PostCards() {
                     setSpener(false);
                     return [...new Set([...prevList, respons.data.data.map((item, index) => {
                         if (respons.data.data.length === index + 1) {
-                            return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.image ? item.title : item.imageURL} slug={item.slug} />)
+                            return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.image ? item.image : item.imageURL} slug={item.slug} />)
                         } else {
                             return (<PostCard title={item.title} key={item.slug} image={item.image ? item.title : item.imageURL} slug={item.slug} />)
                         }

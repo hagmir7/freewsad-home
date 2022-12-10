@@ -15,7 +15,7 @@ a{
     text-decoration: none;
 }
 
-p a img,
+p a img, figure img, jodit,
 .td-post-content div a img{
     width: 100%!important;
     height: auto!important;
@@ -47,7 +47,12 @@ p a img,
     border-radius: 20px!important;
 }
 
-
+.img-content{
+    height: 204px;
+}
+.img-content img{
+    object-fit: cover;
+}
 
 
 
