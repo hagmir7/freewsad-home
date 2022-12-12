@@ -16,10 +16,13 @@ a{
 }
 
 p a img, figure img, jodit,
-.td-post-content div a img{
+.td-post-content div a img, .wp-caption, .wp-caption img,
+p img{
     width: 100%!important;
     height: auto!important;
 }
+
+
 
 .bg-gradient-success {
     background-image: linear-gradient(310deg, #2dce89, #2dcecc);
@@ -32,13 +35,14 @@ p a img, figure img, jodit,
     border-radius: 0.375rem;
     color: #839496;
     font-family: Consolas,Courier New,monospace;
-    font-size: 13px;
+    font-size: 1em!important;
     font-weight: 500;
     max-height: 500px;
     overflow: auto;
     padding: 0.5rem!important;
     white-space: pre;
 }
+
 
 
 
