@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom'
 import API from '../api/API';
 import ProfileCard from '../components/Profile/ProfileCard';
@@ -6,6 +7,7 @@ import ProfileCard from '../components/Profile/ProfileCard';
 import ProfileCardAbout from '../components/Profile/ProfileCardAbout';
 import SocialCard from '../components/Profile/SocialCard';
 import SEO from '../components/SEO/SEO';
+import AuthContext from '../context/AuthContext';
 import NotFound from './404';
 import ProfileUpdate from './ProfileUpdate';
 
@@ -18,6 +20,8 @@ export default function Profile() {
   const { username } = useParams();
   const [user, setUser] = React.useState(null);
   const [result, setResult] = React.useState(true);
+  const { t } = useTranslation()
+  const { User } = useContext(AuthContext)
 
 
 
@@ -73,8 +77,17 @@ export default function Profile() {
             <div className="col-md-8">
               <div className="card mb-3">
                 {
-                  update ?
-                    <ProfileUpdate />
+                  update ? User.username === user.username  ?
+                    <ProfileUpdate
+                    
+                        first_name={User.first_name}
+                        last_name={User.last_name}
+                        phone={User.phone}
+                        email={User.email}
+                        city={User.city}
+                        country={User.country}
+                        birth={User.birth}
+                    /> : ''
                     : user ?
                       <ProfileCardAbout
                         firstName={user.first_name}
@@ -95,11 +108,19 @@ export default function Profile() {
                       </div>
                 }
                 <hr />
-                <div className="row mb-2 ms-2">
+                <div className="row mb-2 mx-2">
                   <div className="col-sm-12">
                     {
-                      update ? <button onClick={() => { setUpdate(false) }} className="btn btn-primary rounded-pill w-25 ">← Back</button>
-                        : <button onClick={() => setUpdate(true)} className="btn btn-primary rounded-pill w-25 ">Edit</button>
+                      user && User ?
+                      User.username === user.username ?
+                      update ? 
+                      <>
+                        <button onClick={() => { setUpdate(false) }} className="btn btn-primary rounded-pill px-3 mx-2">← {t("Back")}</button>
+                        <button className="btn btn-primary rounded-pill px-3 mx-2">{t("Save")}</button>
+                      </>
+                        : <button onClick={() => setUpdate(true)} className="btn btn-primary rounded-pill px-3">{t("Edit")}</button>
+                      : ""
+                      : ""
                     }
 
                   </div>

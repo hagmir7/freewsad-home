@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import API from '../api/API';
 
 import jwt_decode from "jwt-decode";
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -17,7 +18,7 @@ export const AuthProvider = ({ children }) => {
 
 
     const history = useNavigate();
-
+    const { t } = useTranslation();
     const [sniper, setSniper] = React.useState(false);
     const [Message, setMessage] = React.useState('');
 
@@ -84,7 +85,8 @@ export const AuthProvider = ({ children }) => {
             setSniper(false)
 
         }).catch(error => {
-            setMessage('The username or password is incorrect.')
+            setMessage(t('The username or password is incorrect.'))
+            setTimeout(()=>{setMessage('')}, 3000)
             setSniper(false)
             console.log(error)
         })

@@ -1,10 +1,34 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import { DownOutlined } from '@ant-design/icons';
+import { Dropdown, Space } from 'antd';
 
 
 export default function Header() {
   const { User, logout } = React.useContext(AuthContext);
+  const { t } = useTranslation();
+
+
+  const items = [
+    {
+      label: User ? <Link to={User.username} className="ant-dropdown-trigger">{t("Profile")}</Link>: '',
+      key: '0',
+      auth: true
+    },
+    {
+      label: User ? <Link to='/contact' className="ant-dropdown-trigger">{t("Contact Us")}</Link> : '',
+      key: '1',
+    },
+    {
+      type: 'divider',
+    },
+    {
+      label:<a onClick={logout} className="ant-dropdown-trigger">{t("Logout")}</a>,
+      key: '3',
+    },
+  ];
 
   return (
     <header className="navbar-light position-sticky top-0 header-static border-bottom bg-white">
@@ -37,11 +61,6 @@ export default function Header() {
                     <Link to={User.username} className='nav-item mx-3' >
                       <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
                     </Link>
-
-                    <span onClick={logout} className='nav-item mx-3 pointer' >
-                      <img title="Logout" loading="eager" className="nav-icon" src="/assets/img/svg/logout.svg" alt="Books" width="30px" height="30px" />
-                    </span>
-
                   </>
                   : ''
               }
@@ -51,21 +70,30 @@ export default function Header() {
             {
               !User ?
                 <>
-                  <Link className="btn-primary btn rounded-pill mx-2" to="/accounts/login">Log in</Link>
-                  <Link className="border btn rounded-pill mx-2" to="/accounts/register">Register</Link>
+                  <Link className="btn-primary btn rounded-pill mx-2" to="/accounts/login">{t("Log in")}</Link>
+                  <Link className="border btn rounded-pill mx-2" to="/accounts/register">{t("Register")}</Link>
                 </>
                 :
 
-                <div className="dropdown d-lg-block d-none bg-white">
-                  <Link to={User.username} className="ant-dropdown-trigger">
-                    <img src={User.avatar} width="40px" loading="eager" height="40" className="cover border rounded-pill pointer" title={User.username} alt={User.username}/>
-                  </Link>
-                </div>
+                  
+
+                  <Dropdown
+                    menu={{
+                      items,
+                    }}
+                    trigger={['click']}
+                  >
+                    <a onClick={(e) => e.preventDefault()}>
+                      <Space> <img src={User.avatar} width="40px" loading="eager" height="40" className="cover border rounded-pill pointer" title={User.username} alt={User.username}/></Space>
+                    </a>
+
+               
+                  </Dropdown>
             }
 
           </div>
           <Link className="navbar-toggler border-0 mt-2 p-0" to="/menu">
-            <span className="d-none">Menu</span><span className="navbar-toggler-icon"></span>
+            <span className="d-none">{t("Menu")}</span><span className="navbar-toggler-icon"></span>
           </Link>
         </div>
       </div>

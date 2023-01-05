@@ -2,11 +2,19 @@ import React from 'react'
 import PostCard from './PostCardComponent'
 import PostCardLoading from './PostCardLoading'
 import api from '../../api/API';
+import { useTranslation } from 'react-i18next';
 
 
 
 
 export default function PostCards() {
+
+    const image = ''
+    const imageURL = ''
+    const imagePlaceholer = ""
+
+
+
 
 
     React.useEffect(() => {
@@ -19,6 +27,7 @@ export default function PostCards() {
     const [data, setData] = React.useState('');
 
     const [page, setPage] = React.useState(1);
+    const { t } = useTranslation()
 
     const loadMore = () => {
         setPage(currnetPage => {
@@ -56,9 +65,9 @@ export default function PostCards() {
                     setSpener(false);
                     return [...new Set([...prevList, respons.data.data.map((item, index) => {
                         if (respons.data.data.length === index + 1) {
-                            return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.image ? item.image : item.imageURL} slug={item.slug} />)
+                            return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.imageURL || item.image == imagePlaceholer ? item.imageURL : item.image} slug={item.slug} />)
                         } else {
-                            return (<PostCard title={item.title} key={item.slug} image={item.image ? item.image : item.imageURL} slug={item.slug} />)
+                            return (<PostCard title={item.title} key={item.slug} image={item.imageURL || item.image == imagePlaceholer ? item.imageURL : item.image} slug={item.slug} />)
                         }
                     }
 
@@ -92,7 +101,7 @@ export default function PostCards() {
                     </div>
                     :
                     <div className='my-3 d-flex justify-content-center'>                    
-                        <a className="border btn rounded-pill mx-2  disabled bg-white w-50">This is All</a>
+                        <a className="border btn rounded-pill mx-2  disabled bg-white w-50">{t("This is All")}</a>
                     </div>
             }
         </>

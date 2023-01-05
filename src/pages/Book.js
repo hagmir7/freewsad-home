@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import API from '../api/API'
 import GoogleAd from '../components/ads/GoogleAd';
@@ -14,7 +15,7 @@ export const Book = () => {
     })
 
     const IsSubscribe = localStorage.getItem('email') ? true : false;
-
+    const { t } = useTranslation()
     const { User } = React.useContext(AuthContext);
     const history = useNavigate();
     const { id } = useParams();
@@ -53,17 +54,17 @@ export const Book = () => {
                     window.location.replace(data.file);
                     setSniper(false);
                 }else{
-                    message.current.innerHTML = 'Your email is not valid!';
+                    message.current.innerHTML = t("Your email is not valid!");
                     setSniper(false);
                 }
                 
             }).catch(error => {
                 console.log(error)
-                message.current.innerHTML = 'Your email is not valid!';
+                message.current.innerHTML = t("Your email is not valid!");
                 setSniper(false);
             })
         } else {
-            message.current.innerHTML = 'Please first enter you email to download!';
+            message.current.innerHTML = t('Please first enter you email to download!');
             setSniper(false);
         }
 
@@ -85,42 +86,42 @@ export const Book = () => {
                                         <div className='card book-img overflow-hidden m-auto'><img src={data.image} alt="" width='100%' height="auto" /></div>
                                     </div>
                                     <div className="col-12 col-lg-9 col-sm-12 p-0 mt-2 mt-lg-0 ps-lg-3 ">
-                                        <h2 className='h4 p-0 m-0 d-sm-none'>About Book</h2>
+                                        <h2 className='h4 p-0 m-0 d-sm-none'>{t("About Book")}</h2>
                                         <ul className="list-group">
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                Name
+                                                {t("Book Name")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.name}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                Author
+                                                {t("Author")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.author}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                File type
+                                                {t("File type")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.file_type}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                Language
+                                                {t("Language")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.language}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                Pages
+                                                {t("Pages")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.pages}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                Date
+                                                {t("Date")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.date}</span>
                                             </li>
                                         </ul>
                                     </div>
-                                    <h2 className='h4 p-0 m-0 mt-3'>Download book</h2>
+                                    <h2 className='h4 p-0 m-0 mt-3'>{t("Download book")}</h2>
                                     {IsSubscribe ? "" : <label htmlFor="email" className='mt-1 p-0'>Please Enter you email to download</label>}
                                     <div className='row p-0'>
                                         <span ref={message} className="text-danger"></span>
                                         {
                                              IsSubscribe || User ?
                                                 <div className='col-md-12  text-center mt-3'>
-                                                    <a href={data.file} className='btn btn-primary rounded-pill w-75 ms-1'>Download Book</a>
+                                                    <a href={data.file} className='btn btn-primary rounded-pill w-75 ms-1'>{t("Download Book")}</a>
                                                 </div>
                                                 :
                                                 <>
@@ -131,7 +132,7 @@ export const Book = () => {
                                                     <div className='col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
                                                         <button onClick={seveEmail} className='btn btn-primary rounded-pill w-75 ms-1'>
                                                             {
-                                                                !sniper ? 'Download Book' : <div className="spinner-border" style={{ height: '20px', width: "20px"}} role="status"></div> 
+                                                                !sniper ? t('Download Book') : <div className="spinner-border" style={{ height: '20px', width: "20px"}} role="status"></div> 
                                                             }
                                                         </button>
                                                     </div>
@@ -162,14 +163,14 @@ export const Book = () => {
                     <div className="position-sticky" style={{ top: "55px", height: " auto !important" }}>
                         <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                         <div className="p-2 mt-3 bg-light card shadow-sm border">
-                            <span className="fst-italic h4 p-1">Copyrights</span>
+                            <span className="fst-italic h4 p-1">{t("Copyrights")}</span>
                             <div>We respect the property rights of others, and are always careful not to infringe on their rights, so
                                 authors and publishing houses have the right to demand that an article or book download link be removed from
                                 the site. If you find an article or book of yours and do not agree to the posting of a download link, or you
-                                have a suggestion or complaint, write to us through the <Link to="/contact" >Contact Us
+                                have a suggestion or complaint, write to us through the <Link to="/contact" >{t("Contact Us")}
                                 </Link>, or by e-mail at: <a href="mailto:supprot@freewsad.com">supprot@freewsad.com.</a>
                             </div>
-                            <Link to="/about">Read More</Link>
+                            <Link to="/about">{t("Read More")}</Link>
                         </div>
 
                     </div>

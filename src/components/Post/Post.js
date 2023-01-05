@@ -6,11 +6,13 @@ import SEO from '../SEO/SEO';
 import API from '../../api/API';
 import GoogleAd from '../ads/GoogleAd';
 import AuthContext from '../../context/AuthContext'
+import { useTranslation } from 'react-i18next';
 
 export default function Post() {
     const { slug } = useParams();
     const [data, setData] = React.useState(null);
-    const { User } = React.useContext(AuthContext)
+    const { User } = React.useContext(AuthContext);
+    const { t } = useTranslation()
 
     React.useEffect(() => {
         loadPost();
@@ -82,7 +84,7 @@ export default function Post() {
                                 have a suggestion or complaint, write to us through the <Link to="/contact" >Contact Us
                                 </Link>, or by e-mail at: <a href="mailto:supprot@freewsad.com">supprot@freewsad.com.</a>
                             </div>
-                            <Link to="/about">Read More</Link>
+                            <Link to="/about">{t("Read More")}</Link>
                         </div>
 
                     </div>

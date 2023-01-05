@@ -2,6 +2,7 @@ import React from 'react';
 import Search from '../components/Search';
 import PostCards from '../components/Post/PostCards';
 import SEO from '../components/SEO/SEO';
+import Lang from '../components/Lang';
 
 
 

@@ -4,6 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from './context/AuthContext';
+import "./i18nextConf";
 
 
 
