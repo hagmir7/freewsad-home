@@ -12,9 +12,10 @@ export const Book = () => {
 
     React.useEffect(() => {
         getBook();
-    })
+        window.scrollTo(0,0)
+    }, [])
 
-    const IsSubscribe = localStorage.getItem('email') ? true : false;
+    const IsSubscribe = localStorage.getItem('email') || localStorage.getItem("authTokens") ? true : false;
     const { t } = useTranslation()
     const { User } = React.useContext(AuthContext);
     const history = useNavigate();
@@ -64,7 +65,7 @@ export const Book = () => {
                 setSniper(false);
             })
         } else {
-            message.current.innerHTML = t('Please first enter you email to download!');
+            message.current.innerHTML = t('Please first enter your email to download!');
             setSniper(false);
         }
 
@@ -89,7 +90,7 @@ export const Book = () => {
                                         <h2 className='h4 p-0 m-0 d-sm-none'>{t("About Book")}</h2>
                                         <ul className="list-group">
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
-                                                {t("Book Name")}
+                                                {t("Book name")}
                                                 <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.name}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -115,7 +116,7 @@ export const Book = () => {
                                         </ul>
                                     </div>
                                     <h2 className='h4 p-0 m-0 mt-3'>{t("Download book")}</h2>
-                                    {IsSubscribe ? "" : <label htmlFor="email" className='mt-1 p-0'>Please Enter you email to download</label>}
+                                    {IsSubscribe ? "" : <label htmlFor="email" className='mt-1 p-0'>Please Enter your email to download</label>}
                                     <div className='row p-0'>
                                         <span ref={message} className="text-danger"></span>
                                         {
@@ -144,7 +145,7 @@ export const Book = () => {
                                     </div>
                                     <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                                 </div>
-                                <h3 className='h4 p-0 m-0 mt-2'>Description</h3>
+                                <h3 className='h4 p-0 m-0 mt-2'>{t("Description")}</h3>
                                 <div className='mt-2' dangerouslySetInnerHTML={{ __html: data.description }} />
                                 <SEO
                                     title={data.name}

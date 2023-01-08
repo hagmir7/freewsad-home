@@ -118,7 +118,12 @@
     "Year and Month": "السنة والشهر",
     "Day" : "اليوم",
     "Edit Social Media": "تعديل وسائل التواصل",
-    "Just enter the username... for example (@hassan_agmir)": "فقط أدخل اسم المستخدم... على سبيل المثال (hassan_agmir)"
+    "Just enter the username... for example (@hassan_agmir)": "فقط أدخل اسم المستخدم... على سبيل المثال (hassan_agmir)",
+    "Your email is not valid!": "البريد الإلكتروني غير صحيح",
+    "Please first enter your email to download!":"الرجاء إدخال بريدك الإلكتروني أولاً للتنزيل!",
+    "Download book":"تحميل الكتاب",
+    "Please Enter your email to download": "الرجاء إدخال بريدك الإلكتروني للتنزيل",
+    "Date": "تاريخ النشر"
 
 }
 

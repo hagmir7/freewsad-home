@@ -20,7 +20,7 @@ export default function Login() {
     return (
         <div className="container my-3">
             <SEO
-                title={t("'Login - Freewsad'")}
+                title={t("Login - Freewsad")}
                 description="You can enjoy the Topics and Courses you love and download the original content, and share it all with your friends in FreeWsad."
                 name='freewsad.com'
                 type='website'

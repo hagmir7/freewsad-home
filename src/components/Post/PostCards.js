@@ -11,7 +11,7 @@ export default function PostCards() {
 
     const image = ''
     const imageURL = ''
-    const imagePlaceholer = ""
+    const imagePlaceholer = "new image"
 
 
 
@@ -65,9 +65,9 @@ export default function PostCards() {
                     setSpener(false);
                     return [...new Set([...prevList, respons.data.data.map((item, index) => {
                         if (respons.data.data.length === index + 1) {
-                            return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.imageURL || item.image == imagePlaceholer ? item.imageURL : item.image} slug={item.slug} />)
+                            return (<PostCard last={lastPostElement} key={item.slug} title={item.title} image={item.image ? item.image : item.imageURL ? item.imageURL : '/placholder.png'} slug={item.slug} />)
                         } else {
-                            return (<PostCard title={item.title} key={item.slug} image={item.imageURL || item.image == imagePlaceholer ? item.imageURL : item.image} slug={item.slug} />)
+                            return (<PostCard title={item.title} key={item.slug} image={item.image ? item.image : item.imageURL ? item.imageURL : '/placholder.png'} slug={item.slug} />)
                         }
                     }
 
