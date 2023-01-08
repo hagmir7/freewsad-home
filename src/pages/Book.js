@@ -116,7 +116,7 @@ export const Book = () => {
                                         </ul>
                                     </div>
                                     <h2 className='h4 p-0 m-0 mt-3'>{t("Download book")}</h2>
-                                    {IsSubscribe ? "" : <label htmlFor="email" className='mt-1 p-0'>Please Enter your email to download</label>}
+                                    {IsSubscribe ? "" : <label htmlFor="email" className='mt-1 p-0'>{t("Please Enter your email to download")}</label>}
                                     <div className='row p-0'>
                                         <span ref={message} className="text-danger"></span>
                                         {
