@@ -121,7 +121,7 @@ export const Book = () => {
                                         {
                                              IsSubscribe || User ?
                                                 <div className='col-md-12  text-center mt-3'>
-                                                    <a href={data.file} className='btn btn-primary rounded-pill w-75 ms-1'>{t("Download Book")}</a>
+                                                    <a href={data.file} className='btn border-0 btn-success rounded-pill w-75 ms-1'>{t("Download Book")}</a>
                                                 </div>
                                                 :
                                                 <>
@@ -130,7 +130,7 @@ export const Book = () => {
                                                     </div>
 
                                                     <div className='col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
-                                                        <button onClick={seveEmail} className='btn btn-primary rounded-pill w-75 ms-1'>
+                                                        <button onClick={seveEmail} className='btn border-0 btn-success rounded-pill w-75 ms-1'>
                                                             {
                                                                 !sniper ? t('Download Book') : <div className="spinner-border" style={{ height: '20px', width: "20px"}} role="status"></div> 
                                                             }

@@ -14,6 +14,9 @@ header {
 a{
     text-decoration: none;
 }
+.btn-success{
+    background-image: linear-gradient(310deg,#2dce89,#2dcecc)!important;
+}
 
 p a img, figure img, jodit,
 .td-post-content div a img, .wp-caption, .wp-caption img,
