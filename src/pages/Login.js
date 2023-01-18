@@ -27,7 +27,7 @@ export default function Login() {
                 image='/favicon.webp'
                 url="https://www.freewsad.com/accounts/login"
                 canonical="/accounts/login" />
-            <div className="row d-flex justify-content-center w-100">
+            <div className="row m-0 d-flex justify-content-center w-100">
                 <div className="text-center mb-1">
                     <img src="/favicon.webp" alt="Freewsa" width="70px" height="auto" />
                     <p className="h5 my-3">{t("Log in to manage your account")}</p>
@@ -51,7 +51,7 @@ export default function Login() {
                     </form>
                 </div>
             </div>
-            <div className="row d-flex justify-content-center w-100 mt-3">
+            <div className="row m-0 d-flex justify-content-center w-100 mt-3">
                 <div className="col-md-5 card shadow-sm p-4 text-center">
                     <p className="m-0">{t("Not yet registered")} ? <Link className="text-info" to="/accounts/register/">{t("Create your account")}</Link></p>
                 </div>

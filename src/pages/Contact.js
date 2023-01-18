@@ -1,15 +1,37 @@
+import { message } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+import API from '../api/API';
 import SEO from '../components/SEO/SEO';
 
 export default function Contact() {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
+  const history = useNavigate()
+
+
+  const sendMessage = async (e)=>{
+    e.preventDefault()
+    const form = new FormData(e.target)
+    await API.post('/contact', form , {
+      headers:{
+        "Content-Type": 'application/json'
+      }
+    }).then(respons =>{
+      message.success(respons.data.message)
+      e.target.reset()
+      history('/');
+
+    }).catch(error=>{
+      message.error(error.message)
+    })
+  }
   return (
     <div className='container'>
         <div className="row justify-content-center my-3">
             <div className="col-md-6">
                 <h1 className='h3'>{t("Contact Us")}</h1>
-                <form action="">
+                <form onSubmit={sendMessage}>
                     <label htmlFor="name">{t("Full name")}</label>
                     <input type="text" maxLength={60} placeholder={t("Full name") + "..."} className="form-control rounded-pill" name='name'/>
                     <label htmlFor="email">{t("Email")}</label>

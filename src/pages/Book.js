@@ -91,7 +91,7 @@ export const Book = () => {
                                         <ul className="list-group">
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                                 {t("Book name")}
-                                                <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.name}</span>
+                                                <span className="w-75 fs-6 p-1 text-center" dir='auto' lang='auto'>{data.name}</span>
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                                 {t("Author")}
@@ -146,7 +146,7 @@ export const Book = () => {
                                     <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                                 </div>
                                 <h3 className='h4 p-0 m-0 mt-2'>{t("Description")}</h3>
-                                <div className='mt-2' dangerouslySetInnerHTML={{ __html: data.description }} />
+                                <div className='mt-2' dir='auto' lang='auto' dangerouslySetInnerHTML={{ __html: data.description }} />
                                 <SEO
                                     title={data.name}
                                     description={data.description.slice(150)}

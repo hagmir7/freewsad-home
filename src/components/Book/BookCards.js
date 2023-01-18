@@ -19,11 +19,12 @@ export default function BookCards() {
         setSniper(true);
         setPage(currnetPage => {
             loadBooks(currnetPage);
-            return currnetPage + 2;
+            return currnetPage + 1;
         })
     }
 
     const loadBooks = async (pageNumber) => {
+        console.log(page)
         await api.get(`books`, {
             headers: {
                 'Content-Type': 'application/json'

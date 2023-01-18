@@ -25,7 +25,7 @@ export default function Register() {
                 image='/favicon.webp'
                 url="https://www.freewsad.com/accounts/register"
                 canonical="/accounts/register" />
-            <div className="row d-flex justify-content-center w-100">
+            <div className="row m-0 d-flex justify-content-center w-100">
                 <div className="text-center mb-1">
                     <img src="/favicon.webp" alt="Freewsa" width="70px" height="auto" />
                     <p className="h5 my-3">{t("Create your account and start managing your profile")}</p></div>
@@ -49,7 +49,7 @@ export default function Register() {
                     </form>
                 </div>
             </div>
-            <div className="row d-flex justify-content-center w-100 mt-3">
+            <div className="row m-0 d-flex justify-content-center w-100 mt-3">
                 <div className="col-md-5 card shadow-sm p-4 text-center">
                     <p className="m-0">{t("Already have an account")} ? <Link className="text-info" to="/accounts/login">{t("Login")}</Link></p>
                 </div>
