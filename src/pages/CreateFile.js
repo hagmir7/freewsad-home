@@ -13,7 +13,7 @@ export default function CreateFile() {
 
 
     const CreateFile = async (e) => {
-        console.log(e.target.files)
+
         const data = new FormData(form.current);
         await API.post('/create/file', data, {
             headers: {

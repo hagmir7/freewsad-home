@@ -3,6 +3,7 @@ import PostCard from './PostCardComponent'
 import PostCardLoading from './PostCardLoading'
 import api from '../../api/API';
 import { useTranslation } from 'react-i18next';
+import { message } from 'antd';
 
 
 
@@ -59,7 +60,6 @@ export default function PostCards() {
             },
             params: { page: page_number }
         }).then(respons => {
-            console.log(respons.data)
             if (respons.data.has_next) {
                 setData(prevList => {
                     setSpener(false);
@@ -80,7 +80,7 @@ export default function PostCards() {
 
             }
         }).catch(error => {
-            console.log(error)
+            message.error(error)
         })
     }
 

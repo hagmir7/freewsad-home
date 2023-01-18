@@ -7,6 +7,7 @@ import API from '../../api/API';
 import GoogleAd from '../ads/GoogleAd';
 import AuthContext from '../../context/AuthContext'
 import { useTranslation } from 'react-i18next';
+import { message } from 'antd';
 
 export default function Post() {
     const { slug } = useParams();
@@ -29,7 +30,7 @@ export default function Post() {
         }).then(response => {
             setData(response.data)
         }).catch(error => {
-            console.log(error)
+            message.error(error)
         })
     }
 

@@ -10,7 +10,6 @@ export default function ProfileUpdate(props) {
 
 
   const onChange = (date, dateString) => {
-    console.log(date, dateString);
   };
   return (
     <div className="card-body p-0">

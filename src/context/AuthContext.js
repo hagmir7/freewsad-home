@@ -4,6 +4,7 @@ import API from '../api/API';
 
 import jwt_decode from "jwt-decode";
 import { useTranslation } from 'react-i18next';
+import { message } from 'antd';
 
 
 
@@ -41,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         }).then(respons => {
             setUser({ ...respons.data[0], ...respons.data[1] })
         }).catch(error => {
-            console.log(error)
+            message.error(error)
         })
        }else{
         setUser(null)
@@ -88,7 +89,7 @@ export const AuthProvider = ({ children }) => {
             setMessage(t('The username or password is incorrect.'))
             setTimeout(()=>{setMessage('')}, 3000)
             setSniper(false)
-            console.log(error)
+            message.error(error)
         })
     }
 
@@ -100,10 +101,7 @@ export const AuthProvider = ({ children }) => {
         const data = new FormData(event.target)
         await API.post('register', data, {
         }).then(respons => {
-            console.log(data.get('username'))
-            console.log(data.get('password'))
             login(data.get('username'), data.get('password'))
-            console.log(respons)
             setSniper(false);
         }).catch(error => {
             setSniper(false);

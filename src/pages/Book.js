@@ -60,7 +60,6 @@ export const Book = () => {
                 }
                 
             }).catch(error => {
-                console.log(error)
                 message.current.innerHTML = t("Your email is not valid!");
                 setSniper(false);
             })

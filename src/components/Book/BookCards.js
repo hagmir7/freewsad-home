@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import React from 'react'
 import api from '../../api/API';
 import BookCardComponent from '../Book/BookCardComponent';
@@ -24,7 +25,6 @@ export default function BookCards() {
     }
 
     const loadBooks = async (pageNumber) => {
-        console.log(page)
         await api.get(`books`, {
             headers: {
                 'Content-Type': 'application/json'
@@ -44,7 +44,7 @@ export default function BookCards() {
             }
 
         }).catch(error => {
-            console.log(error);
+            message.error(error.message)
         })
     }
 
