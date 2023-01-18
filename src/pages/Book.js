@@ -126,7 +126,7 @@ export const Book = () => {
                                                 :
                                                 <>
                                                     <div className='col-md-12 col-lg-6 col-xl-6'>
-                                                        <input onChange={(e) => { setEmail(e.target.value); message.current.innerHTML = '' }} type="email" placeholder='Enter you email' className='form-control rounded-pill' />
+                                                        <input onChange={(e) => { setEmail(e.target.value); message.current.innerHTML = '' }} type="email" placeholder={t("Enter you email")} className='form-control rounded-pill' />
                                                     </div>
 
                                                     <div className='col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0'>
