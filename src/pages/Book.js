@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import API from '../api/API'
 import GoogleAd from '../components/ads/GoogleAd';
-import PostCards from '../components/Post/PostCards';
+import BookCards from '../components/Book/BookCards';
 import PostDetailLoading from '../components/Post/PostDetailLoading';
 import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
@@ -176,7 +176,7 @@ export const Book = () => {
                     </div>
                 </div>
             </div>
-            <PostCards />
+            <BookCards />
         </div>
     )
 }

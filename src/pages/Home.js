@@ -1,8 +1,9 @@
 import React from 'react';
-import Search from '../components/Search';
+// import Search from '../components/Search';
 import PostCards from '../components/Post/PostCards';
 import SEO from '../components/SEO/SEO';
-import Lang from '../components/Lang';
+// import Lang from '../components/Lang';
+import BookCards from '../components/Book/BookCards';
 
 
 
@@ -13,10 +14,14 @@ export default function Home() {
   return (
     <div className='container'>
       <h1 hidden>Freewsad - The best website for Education.</h1>
-      <div className='row d-flex justify-content-center'>
+      {/* <div className='row d-flex justify-content-center'>
         <Search />
-      </div>
+      </div> */}
+      <BookCards />
+      <div className='mt-3'>
+
       <PostCards />
+      </div>
 
 
       <SEO
