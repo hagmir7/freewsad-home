@@ -10,11 +10,6 @@ import AuthContext from '../context/AuthContext';
 
 export const Book = () => {
 
-    React.useEffect(() => {
-        getBook();
-        window.scrollTo(0,0)
-    }, [])
-
     const IsSubscribe = localStorage.getItem('email') || localStorage.getItem("authTokens") ? true : false;
     const { t } = useTranslation()
     const { User } = React.useContext(AuthContext);
@@ -23,6 +18,13 @@ export const Book = () => {
     const [data, setData] = React.useState(null);
     const [email, setEmail] = React.useState('');
     const [sniper, setSniper] = React.useState(false);
+
+
+    React.useEffect(() => {
+        getBook();
+        window.scrollTo(0,0)
+    }, [id])
+
 
     const message = React.useRef();
 
