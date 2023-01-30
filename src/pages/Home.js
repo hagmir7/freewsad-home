@@ -1,7 +1,6 @@
 import React from 'react';
 import PostCards from '../components/Post/PostCards';
 import SEO from '../components/SEO/SEO';
-import BookCards from '../components/Book/BookCards';
 
 
 
@@ -15,7 +14,7 @@ export default function Home() {
       {/* <div className='row d-flex justify-content-center'>
         <Search />
       </div> */}
-      <BookCards />
+      {/* <BookCards /> */}
       <div className='mt-3'>
 
       <PostCards />

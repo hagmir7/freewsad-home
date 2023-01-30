@@ -19,24 +19,32 @@ const languages = [
         name: 'Française',
     }
 
-
 ]
 
 const Lang = () => {
+
+
+
+
+
+
     const { i18n } = useTranslation();
-    const currentLanguageCode = coockies.get("i18next") || 'en'
-    const currentLanguage = languages.find(lan => lan.code === currentLanguageCode)
+    const currentLangCode = coockies.get('i18next') || 'en'
+    const currentLanguage = languages.find(lan => lan.code === currentLangCode)
     useEffect(() => {
         document.querySelector('html').dir = currentLanguage.dir || 'ltr'
     }, [currentLanguage])
 
+    
+
     return (
-        <div>
+        <div className="mt-2 mx-2">
             <Select
                 style={{ width: 120 }}
                 defaultValue={i18n.language}
-                className="lang mt-2 mx-2"
+                className="lang"
                 onChange={(lang) => {
+                    window.location.reload()
                     i18n.changeLanguage(lang);
                 }}
             >

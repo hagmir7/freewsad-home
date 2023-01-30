@@ -4,8 +4,6 @@ import HttpApi from 'i18next-http-backend';
 // import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
-const fallbackLng = 'en';
-const availableLanguages = ['en', 'ar', 'fr'];
 
 
 
