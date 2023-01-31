@@ -77,7 +77,7 @@ export const Book = () => {
     return (
         <div className="container-lg mt-3" style={{ height: 'auto!important' }}>
             <div className="row" style={{ height: 'auto!important' }}>
-                <div className="col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0" style={{ height: 'auto!important' }}>
+                <div className="col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0 p-1" style={{ height: 'auto!important' }}>
                     {
                         data === null ? <PostDetailLoading /> :
                             <article className="blog-post" style={{ height: 'auto!important' }}>
@@ -85,7 +85,7 @@ export const Book = () => {
 
                                 <div className='row mx-1'>
                                     <div className="col-12 col-md-12 col-lg-3 col-xl-3 p-0 ">
-                                        <div className='card book-img overflow-hidden m-auto'><img src={data.image} alt="" width='100%' height="auto" /></div>
+                                        <div className='card book-img overflow-hidden m-auto'><img onLoad={(e)=> e.target.src = data.image } src="/assets/img/book-placeholder.png" alt="" width='100%' height="auto" /></div>
                                     </div>
                                     <div className="col-12 col-lg-9 col-sm-12 p-0 mt-2 mt-lg-0 ps-lg-3 ">
                                         <h2 className='h4 p-0 m-0 d-sm-none'>{t("About Book")}</h2>
@@ -112,7 +112,12 @@ export const Book = () => {
                                             </li>
                                             <li className="list-group-item d-flex justify-content-between align-items-center">
                                                 {t("Date")}
-                                                <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">{data.date}</span>
+                                                <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
+                                                {new Date(data.date).getFullYear()}-
+                                                {new Date(data.date).getMonth() + 1}-
+                                                {new Date(data.date).getUTCDate()}
+                                                
+                                                </span>
                                             </li>
                                         </ul>
                                     </div>
