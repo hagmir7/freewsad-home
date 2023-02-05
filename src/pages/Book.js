@@ -160,8 +160,8 @@ export const Book = () => {
                         </span>
                       </li>
                     </ul>
-                    <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                   </div>
+                  <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                   <h2 className="h4 p-0 m-0 mt-3">{t("Download book")}</h2>
                   {IsSubscribe ? (
                     ""

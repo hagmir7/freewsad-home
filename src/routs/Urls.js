@@ -14,6 +14,7 @@ import { Book } from '../pages/Book';
 import About from '../pages/About';
 import Privacy from '../pages/Privacy';
 import CreateFile from '../pages/CreateFile';
+import CreateBook from '../pages/book/CreateBook';
 
 
 export default function Urls() {
@@ -34,6 +35,7 @@ export default function Urls() {
           <Route path='/about' element={<About />} />
           <Route path="/privacy" element={<Privacy />} />
           <Route path='/create/file' element={<CreateFile />} />
+          <Route path='/create/book' element={<CreateBook />} />
         </Routes>
 
     </div>
