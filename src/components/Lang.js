@@ -15,6 +15,7 @@ const languages = [
         dir: 'rtl'
     },
 
+
 ]
 
 const Lang = () => {
