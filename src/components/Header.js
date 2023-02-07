@@ -118,7 +118,7 @@ export default function Header() {
         </div>
         {
           !search ? '' : (
-            <div className='position-absolute row p-0 m-0 w-100 d-flex justify-content-center'>
+            <div className='position-absolute row p-0 m-0  d-flex justify-content-center'>
               <div className='col-md-6 p-0 m-0'><SearchBook delete={(
                 <span class="input-group-text pointer" onClick={() => setSearch(false)} id="basic-addon1"><CloseOutlined /></span>
               )} /></div>
