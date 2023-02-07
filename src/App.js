@@ -24,9 +24,6 @@ function App() {
     <div>
       <Header />
       <div className='row m-0'>
-        <div className='col-12 col-md-6 col-lg-3 col-xl-3 mt-2'>
-          <SearchBook />
-        </div>
         <div className='col-12 col-md-6 col-lg-3 col-xl-3'>
           <Lang />
         </div>
