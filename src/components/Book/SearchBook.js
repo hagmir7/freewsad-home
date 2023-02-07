@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input } from 'antd';
 import { useTranslation } from 'react-i18next';
-import { CopyOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 import API from '../../api/API';
 import { Link } from 'react-router-dom';
 
@@ -30,10 +30,10 @@ export default function SearchBook() {
     }
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div style={{ position: 'relative' }} className="px-2">
 
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">@</span>
+            <div class="input-group">
+                <span class="input-group-text" id="basic-addon1"><SearchOutlined /></span>
                 <input
                     onChange={Search}
                     placeholder={t("Search") + "..."}
@@ -42,7 +42,7 @@ export default function SearchBook() {
                 />
 
             </div>
-            <div className="list-group search-list position-absolute w-100 shadow"
+            <div className="list-group search-list position-absolute w-auto shadow"
                 style={{ zIndex: '99', overflow: "auto", maxHeight: "300px" }}>
                 {book}
             </div>

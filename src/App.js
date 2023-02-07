@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     document.querySelector('html').dir = coockies.get("i18next") === 'ar' ? 'rtl' : 'ltr';
-    
+
   }, [])
 
 
@@ -23,12 +23,12 @@ function App() {
 
     <div>
       <Header />
-      <div className='row'>
-        <div className='col-md-3'>
-          <Lang />
-        </div>
-        <div className='col-md-3 mt-2'>
+      <div className='row m-0'>
+        <div className='col-12 col-md-6 col-lg-3 col-xl-3 mt-2'>
           <SearchBook />
+        </div>
+        <div className='col-12 col-md-6 col-lg-3 col-xl-3'>
+          <Lang />
         </div>
       </div>
       <Urls />
