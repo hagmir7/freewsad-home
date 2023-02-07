@@ -57,28 +57,28 @@ export default function Header() {
           <div className="navbar-top d-none d-lg-block small bg-white mb-0">
             <nav className="d-flex justify-content-between p-2 pb-0 nav">
               <Link to='/' className='nav-item mx-3' >
-                <img title="Home" loading="eager" className="nav-icon" src="/assets/img/svg/home.svg" alt="Home" width="30px" height="30px" />
+                <img title="Home" loading="eager" className="nav-icon" src="/assets/new/home.png" alt="Home" width="30px" height="30px" />
               </Link>
               <Link to='/books' className='nav-item mx-3' >
-                <img title="Books" loading="eager" className="nav-icon" src="/assets/img/svg/book-1.svg" alt="Books" width="30px" height="30px" />
+                <img title="Books" loading="eager" className="nav-icon" src="/assets/new/book.png" alt="Books" width="30px" height="30px" />
               </Link>
 
 
               <Link to='/contact' className='nav-item mx-3' >
-                <img title="Contact" loading="eager" className="nav-icon" src="/assets/img/svg/support.svg" alt="Contact" width="30px" height="30px" />
+                <img title="Contact" loading="eager" className="nav-icon" src="/assets/new/support.png" alt="Contact" width="30px" height="30px" />
               </Link>
               <Link to='/blog' className='nav-item mx-3' >
-                <img title="Blog" loading="eager" className="nav-icon" src="/assets/img/svg/post.svg" alt="Blog" width="30px" height="30px" />
+                <img title="Blog" loading="eager" className="nav-icon" src="/assets/new/post.png" alt="Blog" width="30px" height="30px" />
               </Link>
 
-              <span className='nav-item mx-3 pointer' onClick={() => setSearch(true)}>
-                <img title="Blog" loading="eager" className="nav-icon" src="/assets/img/svg/search.svg" alt="Search" width="30px" height="30px" />
+              <span className='nav-item mx-3 pointer' onClick={() => {setSearch(true); setTimeout(()=> {document.querySelector('#search').focus()}, 100)}}>
+                <img title="Blog" loading="eager" className="nav-icon" src="/assets/new/loupe.png" alt="Search" width="30px" height="30px" />
               </span>
               {
                 User ?
                   <>
                     <Link to={User.username} className='nav-item mx-3' >
-                      <img title="Profile" loading="eager" className="nav-icon" src="/assets/img/svg/about.svg" alt="Profile" width="30px" height="30px" />
+                      <img title="Profile" loading="eager" className="nav-icon" src="/assets/new/user.png" alt="Profile" width="30px" height="30px" />
                     </Link>
                   </>
                   : ''
@@ -109,7 +109,7 @@ export default function Header() {
           <Link className="navbar-toggler border-0 mt-2 p-0" to="/books">
             <span className="d-none">{t("Books")}</span><BookOutlined />
           </Link>
-          <span onClick={() => setSearch(true)} className="navbar-toggler border-0 mt-2 p-0">
+          <span onClick={() => {setSearch(true); setTimeout(()=> {document.querySelector('#search').focus()}, 100)}} className="navbar-toggler border-0 mt-2 p-0">
           <span className="d-none">{t("Books")}</span><SearchOutlined />
           </span>
           <Link className="navbar-toggler border-0 mt-2 p-0" to="/menu">
@@ -118,8 +118,8 @@ export default function Header() {
         </div>
         {
           !search ? '' : (
-            <div className='position-absolute row p-0 m-0  d-flex justify-content-center'>
-              <div className='col-md-6 p-0 m-0'><SearchBook delete={(
+            <div className='position-absolute row p-0 m-0 w-100 d-flex justify-content-center'>
+              <div className='col-md-6 p-0 m-0 position-relative' ><SearchBook delete={(
                 <span class="input-group-text pointer" onClick={() => setSearch(false)} id="basic-addon1"><CloseOutlined /></span>
               )} /></div>
             </div>
