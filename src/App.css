@@ -1,5 +1,4 @@
-
-body{
+body {
     background-color: aliceblue;
 }
 
@@ -7,22 +6,28 @@ header {
     box-shadow: -1px 1px 2px #ded5d5a8;
     z-index: 2;
 }
-.pointer{
-    cursor: pointer!important;
+
+.pointer {
+    cursor: pointer !important;
 }
 
-a{
+a {
     text-decoration: none;
 }
-.btn-success{
-    background-image: linear-gradient(310deg,#2dce89,#2dcecc)!important;
+
+.btn-success {
+    background-image: linear-gradient(310deg, #2dce89, #2dcecc) !important;
 }
 
-p a img, figure img, jodit,
-.td-post-content div a img, .wp-caption, .wp-caption img,
-p img{
-    width: 100%!important;
-    height: auto!important;
+p a img,
+figure img,
+jodit,
+.td-post-content div a img,
+.wp-caption,
+.wp-caption img,
+p img {
+    width: 100% !important;
+    height: auto !important;
 }
 
 
@@ -32,17 +37,25 @@ p img{
     color: white;
 }
 
+.input-group-text {
+    padding: 0.25rem 0.75rem;
+    background-color: #fdfeff;
+    border: 1px solid #ced4da;
 
-.code, pre {
+}
+
+
+.code,
+pre {
     background-color: #002b36;
     border-radius: 0.375rem;
     color: #839496;
-    font-family: Consolas,Courier New,monospace;
-    font-size: .85em!important;
+    font-family: Consolas, Courier New, monospace;
+    font-size: .85em !important;
     font-weight: 500;
     max-height: 500px;
     overflow: auto;
-    padding: 0.5rem!important;
+    padding: 0.5rem !important;
     /* white-space: nowrap; */
 }
 
@@ -50,14 +63,15 @@ p img{
 
 
 
-.contact-body{
-    border-radius: 20px!important;
+.contact-body {
+    border-radius: 20px !important;
 }
 
-.img-content{
+.img-content {
     height: 204px;
 }
-.img-content img{
+
+.img-content img {
     object-fit: cover;
 }
 
@@ -70,7 +84,8 @@ p img{
 
 
 
-.loading div, .image {
+.loading div,
+.image {
     background: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, .5) 50%, rgba(255, 255, 255, 0) 60%) #cfcfcfad;
     background-size: 200% 100%;
     background-position-x: 180%;
@@ -89,41 +104,36 @@ p img{
     border-radius: 4px;
     animation-delay: .05s
 }
-.image{
+
+.image {
     height: 200px;
 }
 
 
-.loading .book{
+.loading .book {
     height: 300px;
 }
 
 
 /* // Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) { 
-    
- }
+@media (max-width: 576px) {}
 
 /* // Medium devices (tablets, 768px and up) */
-@media (max-width: 768px) { 
-    .book-img{
-        width: 200px!important;
+@media (max-width: 768px) {
+    .book-img {
+        width: 200px !important;
     }
- }
+}
 
 /* // Large devices (desktops, 992px and up) */
-@media (max-width: 992px) { 
-    .book-img{
-        width: 250px!important;
+@media (max-width: 992px) {
+    .book-img {
+        width: 250px !important;
     }
- }
+}
 
 /* // X-Large devices (large desktops, 1200px and up) */
-@media (max-width: 1200px) { 
-    
- }
+@media (max-width: 1200px) {}
 
 /* // XX-Large devices (larger desktops, 1400px and up) */
-@media (max-width: 1400px) { 
-    
- }
+@media (max-width: 1400px) {}

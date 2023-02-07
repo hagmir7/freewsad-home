@@ -5,6 +5,7 @@ import Urls from './routs/Urls';
 import coockies from 'js-cookie';
 import React, { useEffect } from 'react';
 import Lang from './components/Lang';
+import SearchBook from './components/Book/SearchBook';
 
 
 
@@ -22,7 +23,14 @@ function App() {
 
     <div>
       <Header />
-      <Lang />
+      <div className='row'>
+        <div className='col-md-3'>
+          <Lang />
+        </div>
+        <div className='col-md-3 mt-2'>
+          <SearchBook />
+        </div>
+      </div>
       <Urls />
       <Footer />
       {/* <ScrollRestoration /> */}
