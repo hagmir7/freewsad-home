@@ -1,5 +1,4 @@
-import React, {useRef} from 'react';
-import { Input } from 'antd';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SearchOutlined } from '@ant-design/icons';
 import API from '../../api/API';
@@ -12,14 +11,12 @@ export default function SearchBook(props) {
     const focus = useRef();
 
 
-    window.onclick = function (event) {
-        setBook('')
-    }
+    window.onclick = () => setBook('');
 
 
     const Search = async (query) => {
         const value = query.target.value === '' ? setBook('') : query.target.value;
-        if(query.target.value !== '' ){
+        if (query.target.value !== '') {
             await API.get('/book', {
                 params: { 'q': value }
             }).then(response => {
@@ -34,7 +31,7 @@ export default function SearchBook(props) {
         <div className="px-2  w-100 overflow-hidden ">
 
             <div className="input-group p-0 m-0">
-                <span className="input-group-text" onClick={()=> (focus.current.focus())} id="basic-addon1"><SearchOutlined /></span>
+                <span className="input-group-text" style={{ zIndex: 99 }} onClick={() => (focus.current.focus())} id="basic-addon1"><SearchOutlined /></span>
                 <input
                     onChange={Search}
                     placeholder={t("Search") + "..."}
@@ -44,7 +41,7 @@ export default function SearchBook(props) {
                     autoComplete='off'
                     ref={focus}
                 />
-            {props.delete}
+                {props.delete}
             </div>
             <div className="list-group search-list position-absolute w-100 shadow"
                 style={{ zIndex: '99', overflow: "auto", maxHeight: "300px" }}>

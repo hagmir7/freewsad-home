@@ -137,7 +137,9 @@ pre {
   .search-list::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
-
+.logo-content{
+    z-index: 100;
+}
 
 /* // Small devices (landscape phones, 576px and up) */
 @media (max-width: 576px) {}
@@ -146,6 +148,9 @@ pre {
 @media (max-width: 768px) {
     .book-img {
         width: 200px !important;
+    }
+    .logo-content{
+        z-index: 5;
     }
 }
 
