@@ -28,17 +28,18 @@ export const Book = () => {
 
     const message = React.useRef();
 
-    const getBook = async () => {
-        await API.get(`book/${id ? id : slug}`, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(respons => {
-            setData(respons.data)
-        }).catch(error => {
-            history('/')
-        })
+  const getBook = async () => {
+    if (id || slug) {
+      await API.get(`book/${id ? id : slug}`, {
+        headers: { 'Content-Type': 'application/json' }
+      })
+        .then(respons => setData(respons.data))
+        .catch(error => history('/'))
+    } else {
+      history('/books')
     }
+
+  }
 
 
     const validateEmail = (email) => {
