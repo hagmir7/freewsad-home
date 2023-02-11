@@ -1,15 +1,18 @@
 import { message } from 'antd';
 import React,{ useEffect} from 'react'
-import api from '../../api/API';
 import BookCardComponent from '../Book/BookCardComponent';
 import BookLoadingCard from './BookLoadingCard';
 // import coockies from 'js-cookie';
 // import jsCookie from 'js-cookie';
 import { useTranslation } from "react-i18next";
+import { useParams } from 'react-router-dom';
+import API from '../../api/API';
 
 
 export default function BookCards() {
     const { i18n } = useTranslation();
+
+    const { category } = useParams();
 
     const [page, setPage] = React.useState(1);
     const [data, setData] = React.useState('');
@@ -33,13 +36,14 @@ export default function BookCards() {
     }
 
     const loadBooks = async (pageNumber) => {
-        await api.get(`books`, {
+        await API.get(`books${category ? "/"+category : ''}`, {
             headers: {
                 'Content-Type': 'application/json'
             },
             params: { page: pageNumber }
         }).then(respons => {
             const resulte = respons.data.data;
+            console.log(respons)
             setSniper(false);
             if (respons.data.has_next) {
                 setData(prePage => {

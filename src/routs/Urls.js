@@ -16,6 +16,7 @@ import Privacy from '../pages/Privacy';
 import CreateFile from '../pages/CreateFile';
 import CreateBook from '../pages/book/CreateBook';
 import { MyEditor } from '../pages/post/CreatePost';
+import BookCategory from '../pages/book/BookCategory';
 
 
 export default function Urls() {
@@ -39,6 +40,7 @@ export default function Urls() {
           <Route path='/create/file' element={<CreateFile />} />
           <Route path='/create/book' element={<CreateBook />} />
           <Route path='/create/post' element={<MyEditor />} />
+          <Route path='/books/:category' element={<BookCategory />} />
         </Routes>
 
     </div>
