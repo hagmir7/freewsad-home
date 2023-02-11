@@ -19,8 +19,8 @@ export default function BookCategory() {
         name='freewsad.com'
         type='website'
         image='/favicon.webp'
-        url="https://www.freewsad.com/books"
-        canonical="/books" />
+        url={`https://www.freewsad.com/books/${category}`}
+        canonical={`/books/${category}`}/>
     </div>
   )
 }

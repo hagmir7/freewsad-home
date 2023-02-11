@@ -260,8 +260,8 @@ export const Book = () => {
                   download link, or you have a suggestion or complaint, write to
                   us through the <Link to="/contact">{t("Contact Us")}</Link>,
                   or by e-mail at:{" "}
-                  <a href="mailto:supprot@freewsad.com">
-                    supprot@freewsad.com.
+                  <a href="mailto:support@freewsad.com">
+                    support@freewsad.com.
                   </a>
                 </div>
                 <Link to="/about">{t("Read More")}</Link>
