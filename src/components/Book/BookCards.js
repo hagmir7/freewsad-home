@@ -5,6 +5,7 @@ import BookLoadingCard from './BookLoadingCard';
 import { useTranslation } from "react-i18next";
 import { useParams } from 'react-router-dom';
 import API from '../../api/API';
+import NotFound from '../../pages/404';
 
 
 export default function BookCards() {
@@ -33,26 +34,33 @@ export default function BookCards() {
         })
     }
 
+
+
     const loadBooks = async (pageNumber) => {
-        await API.get(`books${category ? "/"+category : ''}`, {
+        const url = `books${category ? "/"+category : ''}`
+        console.log(url)
+        await API.get(url, {
             headers: {
                 'Content-Type': 'application/json'
             },
             params: { page: pageNumber }
         }).then(respons => {
             const resulte = respons.data.data
-            console.log(respons)
+            console.log(resulte)
             setSniper(false);
-            if (respons.data.has_next) {
                 setData(prePage => {
                     return [...new Set([...prePage, resulte.map((item, index) => {
                         return (<BookCardComponent slug={item.id} title={item.name} image={item.image} key={item.id} />)
                     })])]
                 })
-            }else{
+            
+                if(resulte.length == 0){
+                    setData(<NotFound />)
+                }
+  
+            if(!respons.data.has_next){
                 setHasNext(false)
             }
-
         }).catch(error => {
             message.error(error.message)
         })
