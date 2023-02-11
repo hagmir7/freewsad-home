@@ -6,9 +6,6 @@ import SEO from '../../components/SEO/SEO';
 export default function BookCategory() {
 
   const { category } = useParams();
-
-
-
   return (
     <div>
       <h1 hidden>Download Free {category} Books - Freewsad</h1>

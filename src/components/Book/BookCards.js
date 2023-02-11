@@ -2,8 +2,6 @@ import { message } from 'antd';
 import React,{ useEffect} from 'react'
 import BookCardComponent from '../Book/BookCardComponent';
 import BookLoadingCard from './BookLoadingCard';
-// import coockies from 'js-cookie';
-// import jsCookie from 'js-cookie';
 import { useTranslation } from "react-i18next";
 import { useParams } from 'react-router-dom';
 import API from '../../api/API';
@@ -42,7 +40,7 @@ export default function BookCards() {
             },
             params: { page: pageNumber }
         }).then(respons => {
-            const resulte = respons.data.data;
+            const resulte = respons.data.data
             console.log(respons)
             setSniper(false);
             if (respons.data.has_next) {
