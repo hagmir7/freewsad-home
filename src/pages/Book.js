@@ -22,8 +22,11 @@ export const Book = () => {
 
     React.useEffect(() => {
         getBook();
-        window.scrollTo(0,0)
+        window.scrollTo(0,0);
     }, [id, slug])
+
+
+
 
 
     const message = React.useRef();
@@ -105,7 +108,7 @@ export const Book = () => {
                   <div className="col-12 col-lg-9 col-sm-12 p-0 mt-2 mt-lg-0 ps-lg-3 ">
                     <h2 className="h4 p-0 m-0 d-sm-none">{t("About Book")}</h2>
                     <ul className="list-group">
-                      <li className="list-group-item d-flex justify-content-between align-items-center">
+                      {/* <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Name")}
                         <span
                           className="w-75 fs-6 p-1 text-center"
@@ -114,7 +117,7 @@ export const Book = () => {
                         >
                           {data.name}
                         </span>
-                      </li>
+                      </li> */}
                       {!data.author ? ("") : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Author")}
@@ -143,6 +146,17 @@ export const Book = () => {
                         </span>
                       </li>
 
+                      {!data.category ? ("") : (
+                        <li className="list-group-item d-flex justify-content-between align-items-center">
+                          {t("Category")}
+                          <Link to={`/books/${data.category}`.toLocaleLowerCase()}
+                          className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1" dir='auto'
+                          >
+                              {data.category}
+                          </Link>
+                        </li>
+                      )}
+
                       {!data.size ? ("") : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Size")}
@@ -164,9 +178,7 @@ export const Book = () => {
                   </div>
                   <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                   <h2 className="h4 p-0 m-0 mt-3">{t("Download book")}</h2>
-                  {IsSubscribe ? (
-                    ""
-                  ) : (
+                  {IsSubscribe ? ( "" ) : (
                     <label htmlFor="email" className="mt-1 p-0">
                       {t("Please Enter your email to download")}
                     </label>
@@ -201,9 +213,7 @@ export const Book = () => {
                             onClick={seveEmail}
                             className="btn border-0 btn-success rounded-pill w-75 ms-1"
                           >
-                            {!sniper ? (
-                              t("Download Book")
-                            ) : (
+                            {!sniper ? (t("Download Book")) : (
                               <div
                                 className="spinner-border"
                                 style={{ height: "20px", width: "20px" }}

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SearchOutlined } from '@ant-design/icons';
 import API from '../../api/API';
 import { Link } from 'react-router-dom';
+import { message } from 'antd';
 
 
 export default function SearchBook(props) {
@@ -22,7 +23,7 @@ export default function SearchBook(props) {
             }).then(response => {
                 setBook(response.data.map(item => (<Link to={`/book/${item.id}`} dir="auto" className="list-group-item list-group-item-action">{item.name}</Link>)))
             }).catch(error => {
-                console.log(error);
+                message.error(error.message)
             })
         }
     }

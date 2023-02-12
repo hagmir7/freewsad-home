@@ -86,8 +86,11 @@ export default function CreateBook() {
             <Input className="mt-2" placeholder={t("Author")} maxLength={50} name="author" required />
             <Select className="w-100 mt-2" onChange={Caty} placeholder={t("Language")} options={language} required />
             <Select className="w-100 mt-2" placeholder={t("Category")} options={category} onChange={(value)=>setCatyId(value) } required/>
-            <input type="file" name="image" accept="image/*" className="mt-2 form-control form-control-sm" required/>
-            <input type="file" onChange={countPages} name="file" accept="pdf" className="mt-2 form-control form-control-sm" required/>
+            <label htmlFor="image" className="mt-2">Image:</label>
+            <input type="file" name="image" accept="image/*" className=" form-control form-control-sm" required/>
+            <label htmlFor="file" className="mt-2">File:</label>
+            <input type="file" onChange={countPages} name="file" accept="pdf" className="form-control form-control-sm" required/>
+            <Input className="mt-2" placeholder={t("Tags")} maxLength={150} name="tags" required />
             <TextArea className="mt-2" name="description" rows={4} placeholder={t("Description")} maxLength={300} required/>
             <button  type="submit" className="btn btn-success mt-2 rounded-pill border-0 w-100">{
                 spinner ? <div className="spinner-border" role="status"> </div> :  t("Create book")}

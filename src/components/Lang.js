@@ -35,7 +35,7 @@ const Lang = () => {
     
 
     return (
-        <div className="mt-2 mx-2">
+        <div className="mt-2">
             <Select
                 style={{ width: "100%" }}
                 defaultValue={i18n.language}

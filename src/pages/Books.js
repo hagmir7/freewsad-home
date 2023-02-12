@@ -12,7 +12,7 @@ export default function Books() {
       
       <SEO
         title='Download Free Books - Freewsad'
-        description="You can enjoy the Books and Courses you love and download the original content, and share it all with your friends in FreeWsad."
+        description="With FreeWsad Get instant access to a vast collection of free PDF books on a wide range of subjects. Download and read high-quality books for free."
         name='freewsad.com'
         type='website'
         image='/favicon.webp'

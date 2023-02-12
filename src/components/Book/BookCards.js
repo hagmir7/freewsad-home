@@ -38,7 +38,6 @@ export default function BookCards() {
 
     const loadBooks = async (pageNumber) => {
         const url = `books${category ? "/"+category : ''}`
-        console.log(url)
         await API.get(url, {
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +45,6 @@ export default function BookCards() {
             params: { page: pageNumber }
         }).then(respons => {
             const resulte = respons.data.data
-            console.log(resulte)
             setSniper(false);
                 setData(prePage => {
                     return [...new Set([...prePage, resulte.map((item, index) => {
