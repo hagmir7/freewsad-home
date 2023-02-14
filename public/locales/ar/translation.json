@@ -125,7 +125,11 @@
     "Please Enter your email to download": "الرجاء إدخال بريدك الإلكتروني للتنزيل",
     "Date": "تاريخ النشر",
     "Enter you email": "أدخل البريد الإكتروني",
-    "Size": "حجم"
+    "Size": "حجم",
+    "You have disabled":  "قمت بتعطيل",
+    "adblock-message": "نلاحظ أنك قمت بتمكين AdBlock. تساعد الإعلانات الموجودة على موقعنا في دعم أعمالنا وتسمح لنا بتقديم محتوى عالي الجودة مجانًا. شكرًا لك!",
+    "AdBlock Detected!": "تم إكتشاف AdBlock",
+    "Privacy": "الخصوصية"
 
 }
 

@@ -75,6 +75,12 @@ pre {
     object-fit: cover;
 }
 
+.ant-modal-confirm-content{
+    margin: 0!important;
+    max-width: 100%!important;
+    display: flex;
+}
+
 
 
 
