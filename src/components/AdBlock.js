@@ -9,7 +9,9 @@ export default function AdBlock() {
 
 
     useEffect(()=>{
-        detectAdBlock();
+        if(!window.location.hostname == 'localhost'){
+            detectAdBlock();
+        }
     }, );
 
 

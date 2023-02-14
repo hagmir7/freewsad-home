@@ -1,7 +1,15 @@
 import axios from 'axios';
 import coockies from 'js-cookie';
 
-const lang = coockies.get("i18next") == undefined ? 'en' : coockies.get("i18next")
+let lang = navigator.language.slice(0,2);
+
+if(coockies.get("i18next")){
+  lang = coockies.get("i18next");
+  
+}else if(!lang == 'ar' || !lang == 'en'){ 
+  lang = 'en';
+}
+
 
 
 export default axios.create({

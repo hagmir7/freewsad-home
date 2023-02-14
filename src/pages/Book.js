@@ -8,6 +8,7 @@ import PostDetailLoading from '../components/Post/PostDetailLoading';
 import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
 import NotFound from './404';
+import coockies from 'js-cookie';
 
 export const Book = () => {
 
@@ -25,9 +26,14 @@ export const Book = () => {
     React.useEffect(() => {
         getBook();
         window.scrollTo(0,0);
-
-        
     }, [id, slug])
+
+    const options = {
+      year: 'numeric',
+      month: 'long',
+      day: '2-digit',
+      timeZone: 'UTC',
+    };
 
     
 
@@ -148,6 +154,16 @@ export const Book = () => {
                           {data.language}
                         </span>
                       </li>
+
+                      <li className="list-group-item d-flex justify-content-between align-items-center">
+                        {t("Downloads")}
+                        <span dir='auto' className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
+                          {new Intl.NumberFormat(coockies.get("i18next"), {
+                            notation: 'compact',
+                          }).format(data.views)}
+                        </span>
+                      </li>
+
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Pages")}
                         <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
@@ -177,10 +193,8 @@ export const Book = () => {
 
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Date")}
-                        <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {new Date(data.date).getFullYear()}-
-                          {new Date(data.date).getMonth() + 1}-
-                          {new Date(data.date).getUTCDate()}
+                        <span dir='auto' className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
+                          {new Intl.DateTimeFormat(coockies.get("i18next"), options).format(new Date(data.date))}
                         </span>
                       </li>
                     </ul>
