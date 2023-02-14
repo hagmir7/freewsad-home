@@ -10,7 +10,10 @@ export default function AdBlock() {
 
     useEffect(()=>{
         detectAdBlock();
-    }, []);
+    }, );
+
+
+
 
 
     // Modal config
@@ -45,7 +48,6 @@ export default function AdBlock() {
             adBlockEnabled = true
 
         } finally {
-            console.log(`AdBlock Enabled: ${adBlockEnabled}`)
             if(adBlockEnabled){
                 modal.error(config);
             }

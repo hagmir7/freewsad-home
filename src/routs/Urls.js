@@ -33,7 +33,7 @@ export default function Urls() {
           <Route path='*' element={<NotFound />} />
           <Route path='/accounts/login' element={<Login />} />
           <Route path='/accounts/register' element={<Register />} />
-          <Route path='/book/:id' element={<Book />} />
+          <Route path='/book/:slug' element={<Book />} />
           <Route path='/book' element={<Book />} />
           <Route path='/about' element={<About />} />
           <Route path="/privacy" element={<Privacy />} />

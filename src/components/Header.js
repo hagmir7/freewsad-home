@@ -24,7 +24,7 @@ export default function Header() {
 
   React.useEffect(()=>{
     setSearch(false)
-  }, [window.location.pathname])
+  }, [])
 
 
 
@@ -49,7 +49,7 @@ export default function Header() {
       type: 'divider',
     },
     {
-      label: <a onClick={logout} className="ant-dropdown-trigger d-flex"><LogoutOutlined className="mt-1"/>  &#xa0;{t("Logout")}</a>,
+      label: <a onClick={logout} href="#!" className="ant-dropdown-trigger d-flex"><LogoutOutlined className="mt-1"/>  &#xa0;{t("Logout")}</a>,
       key: '3',
     },
   ];
@@ -63,7 +63,7 @@ export default function Header() {
         <div className="d-flex justify-content-between w-100 px-3">
           <div className='logo-content'>
             <Link className="nav-item logo h4  m-0 my-1 h1" to="/">
-              <img width="auto" height="45px" title="Freewsad" loading="eager" src="/freewsad-item.webp" alt="Freewsad" />
+              <img width="auto" height="45px" title="Freewsad" loading="eager" src="/assets/img/freewsad-item.webp" alt="Freewsad" />
             </Link>
           </div>
           <div className="navbar-top d-none d-lg-block small bg-white mb-0">
@@ -105,7 +105,7 @@ export default function Header() {
 
 
                 <Dropdown menu={{ items,  }} trigger={['click']} >
-                  <a onClick={(e) => e.preventDefault()}>
+                  <a onClick={(e) => e.preventDefault()} href="#!">
                     <Space> <img src={User.avatar} width="40px" loading="eager" height="40" className="cover border rounded-pill pointer" title={User.username} alt={User.username} /></Space>
                   </a>
                 </Dropdown>
@@ -133,7 +133,7 @@ export default function Header() {
           !search ? '' : (
             <div className='position-absolute m-auto row p-0 w-100 d-flex justify-content-center'>
               <div className='col-md-6 p-0 m-0 position-relative' ><SearchBook delete={(
-                <span class="input-group-text pointer" onClick={() => setSearch(false)} id="basic-addon1"><CloseOutlined /></span>
+                <span className="input-group-text pointer" onClick={() => setSearch(false)} id="basic-addon1"><CloseOutlined /></span>
               )} /></div>
             </div>
           )

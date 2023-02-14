@@ -21,7 +21,7 @@ export default function SearchBook(props) {
             await API.get('/book', {
                 params: { 'q': value }
             }).then(response => {
-                setBook(response.data.map(item => (<Link to={`/book/${item.id}`} dir="auto" className="list-group-item list-group-item-action">{item.name}</Link>)))
+                setBook(response.data.map(item => (<Link key={item.id} to={`/book/${item.id}`} dir="auto" className="list-group-item list-group-item-action">{item.name}</Link>)))
             }).catch(error => {
                 message.error(error.message)
             })

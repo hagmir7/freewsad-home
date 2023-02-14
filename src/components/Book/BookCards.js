@@ -48,7 +48,7 @@ export default function BookCards() {
             setSniper(false);
                 setData(prePage => {
                     return [...new Set([...prePage, resulte.map((item, index) => {
-                        return (<BookCardComponent slug={item.id} title={item.name} image={item.image} key={item.id} />)
+                        return (<BookCardComponent slug={item.slug ? item.slug : item.id} title={item.name} image={item.image} key={item.id} />)
                     })])]
                 })
             

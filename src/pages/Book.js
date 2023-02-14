@@ -7,6 +7,7 @@ import BookCards from '../components/Book/BookCards';
 import PostDetailLoading from '../components/Post/PostDetailLoading';
 import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
+import NotFound from './404';
 
 export const Book = () => {
 
@@ -18,26 +19,34 @@ export const Book = () => {
     const [data, setData] = React.useState(null);
     const [email, setEmail] = React.useState('');
     const [sniper, setSniper] = React.useState(false);
+    const [ error, setError ] = React.useState(false);
 
 
     React.useEffect(() => {
         getBook();
         window.scrollTo(0,0);
+
+        
     }, [id, slug])
 
+    
 
 
 
 
-    const message = React.useRef();
+
+  const msg = React.useRef();
 
   const getBook = async () => {
     if (id || slug) {
       await API.get(`book/${id ? id : slug}`, {
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 'Content-Type': 'application/json'}
       })
         .then(respons => setData(respons.data))
-        .catch(error => history('/'))
+        .catch(error =>{
+          setError(true);
+          
+        })
     } else {
       history('/books')
     }
@@ -61,16 +70,16 @@ export const Book = () => {
                     window.location.replace(data.file);
                     setSniper(false);
                 }else{
-                    message.current.innerHTML = t("Your email is not valid!");
+                    msg.current.innerHTML = t("Your email is not valid!");
                     setSniper(false);
                 }
                 
             }).catch(error => {
-                message.current.innerHTML = t("Your email is not valid!");
+                msg.current.innerHTML = t("Your email is not valid!");
                 setSniper(false);
             })
         } else {
-            message.current.innerHTML = t('Please first enter your email to download!');
+            msg.current.innerHTML = t('Please first enter your email to download!');
             setSniper(false);
         }
 
@@ -86,7 +95,7 @@ export const Book = () => {
             className="col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0 p-1"
             style={{ height: "auto!important" }}
           >
-            {data === null ? ( <PostDetailLoading /> ) : (
+            {data === null ? error ? <NotFound /> : ( <PostDetailLoading /> )   : (
               <article
                 className="blog-post"
                 style={{ height: "auto!important" }}
@@ -130,7 +139,7 @@ export const Book = () => {
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("File type")}
                         <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {data.file_type}
+                          {data.book_type ? data.book_type : data.file_type}
                         </span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center">
@@ -184,7 +193,7 @@ export const Book = () => {
                     </label>
                   )}
                   <div className="row p-0">
-                    <span ref={message} className="text-danger"></span>
+                    <span ref={msg} className="text-danger"></span>
                     {IsSubscribe || User ? (
                       <div className="col-md-12  text-center mt-3">
                         <a
@@ -200,7 +209,7 @@ export const Book = () => {
                           <input
                             onChange={(e) => {
                               setEmail(e.target.value);
-                              message.current.innerHTML = "";
+                              msg.current.innerHTML = "";
                             }}
                             type="email"
                             placeholder={t("Enter you email")}
@@ -243,7 +252,7 @@ export const Book = () => {
                   image={data.image}
                   url={`https://www.freewsad.com/book/${id}`}
                   canonical={`/book/${id}`}
-                />
+                /> 
               </article>
             )}
           </div>
