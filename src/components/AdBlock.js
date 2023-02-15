@@ -11,13 +11,8 @@ export default function AdBlock() {
     useEffect(() => {
         if (window.location.hostname !== 'localhost') {
             detectAdBlock();
-            console.log("Add block")
         }
     },[]);
-
-
-
-
 
     // Modal config
     const config = {
