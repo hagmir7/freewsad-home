@@ -8,11 +8,12 @@ export default function AdBlock() {
     const [modal, contextHolder] = Modal.useModal();
 
 
-    useEffect(()=>{
-        if(!window.location.hostname == 'localhost'){
+    useEffect(() => {
+        if (window.location.hostname !== 'localhost') {
             detectAdBlock();
+            console.log("Add block")
         }
-    }, );
+    },[]);
 
 
 
