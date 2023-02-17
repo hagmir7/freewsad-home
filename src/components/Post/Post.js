@@ -78,12 +78,11 @@ export default function Post() {
                     <div className="position-sticky" style={{ top: "55px", height: " auto !important" }}>
                         <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                         <div className="p-2 mt-3 bg-light card shadow-sm border">
-                            <span className="fst-italic h4 p-1">Copyrights</span>
-                            <div>We respect the property rights of others, and are always careful not to infringe on their rights, so
-                                authors and publishing houses have the right to demand that an article or book download link be removed from
-                                the site. If you find an article or book of yours and do not agree to the posting of a download link, or you
-                                have a suggestion or complaint, write to us through the <Link to="/contact" >Contact Us
-                                </Link>, or by e-mail at: <a href="mailto:supprot@freewsad.com">supprot@freewsad.com.</a>
+                            <span className="h4 p-1">{t("Copyrights")}</span>
+                            <div>
+                                {t("copyrights_text")} <Link to="/contact">{t("Contact Us")}</Link>,
+                                {" "} {t("or by email at")} : {" "}
+                                <a href="mailto:support@freewsad.com"> support@freewsad.com.</a>
                             </div>
                             <Link to="/about">{t("Read More")}</Link>
                         </div>

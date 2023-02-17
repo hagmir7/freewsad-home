@@ -6,9 +6,12 @@ let lang = navigator.language.slice(0,2);
 if(coockies.get("i18next")){
   lang = coockies.get("i18next");
   
-}else if(!lang == 'ar' || !lang == 'en'){ 
+}else if(lang !== 'ar' || lang !== 'en'){ 
   lang = 'en';
 }
+
+console.log(lang)
+console.log(navigator.language.slice(0,2))
 
 
 
