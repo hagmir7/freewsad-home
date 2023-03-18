@@ -60,7 +60,28 @@ pre {
 }
 
 
-
+.whatsapp-chat {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 999;
+  }
+  
+  .whatsapp-chat svg {
+    padding: 6px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform .2s ease-in-out;
+    font-size: 30px;
+    height: 54px;
+    width: 54px;
+    color: #2AABEE;
+  }
+  
+  .whatsapp-chat svg:hover {
+    transform: scale(1.1);
+  }
+  
 
 
 .contact-body {

@@ -9,6 +9,7 @@ import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
 import NotFound from './404';
 import coockies from 'js-cookie';
+import ShearModal from '../components/Book/ShearModal';
 
 export const Book = () => {
 
@@ -248,6 +249,7 @@ export const Book = () => {
                       </>
                     )}
                   </div>
+                  {/* <ShearModal url={window.location.href} title={data.name} /> */}
                   <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                 </div>
                 <h3 className="h4 p-0 m-0 mt-2">{t("Description")}</h3>
