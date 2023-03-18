@@ -10,8 +10,6 @@ if(coockies.get("i18next")){
   lang = 'en';
 }
 
-console.log(lang)
-console.log(navigator.language.slice(0,2))
 
 
 

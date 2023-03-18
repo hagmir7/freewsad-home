@@ -249,7 +249,6 @@ export const Book = () => {
                       </>
                     )}
                   </div>
-                  {/* <ShearModal url={window.location.href} title={data.name} /> */}
                   <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                 </div>
                 <h3 className="h4 p-0 m-0 mt-2">{t("Description")}</h3>
@@ -259,6 +258,7 @@ export const Book = () => {
                   lang="auto"
                   dangerouslySetInnerHTML={{ __html: data.description }}
                 />
+                <ShearModal title={data.name} />
 
                 <SEO
                   title={data.name}
