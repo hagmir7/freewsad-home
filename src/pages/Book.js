@@ -249,7 +249,7 @@ export const Book = () => {
                       </>
                     )}
                   </div>
-                  <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
+                  {/* <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" /> */}
                 </div>
                 <h3 className="h4 p-0 m-0 mt-2">{t("Description")}</h3>
                 <div
