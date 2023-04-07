@@ -4,6 +4,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import API from '../../api/API';
 import { Link } from 'react-router-dom';
 import { message } from 'antd';
+import coockies from 'js-cookie';
 
 
 export default function SearchBook(props) {
@@ -13,6 +14,7 @@ export default function SearchBook(props) {
 
 
     window.onclick = () => setBook('');
+
 
 
     const Search = async (query) => {
@@ -31,7 +33,7 @@ export default function SearchBook(props) {
     return (
         <div className="px-2  w-100 overflow-hidden ">
 
-            <div className="input-group p-0 m-0">
+            <div className="input-group p-0 m-0" style={coockies.get("i18next") == 'ar' ? {flexDirection: 'row-reverse'} : ''}>
                 <span className="input-group-text" style={{ zIndex: 99 }} onClick={() => (focus.current.focus())} id="basic-addon1"><SearchOutlined /></span>
                 <input
                     onChange={Search}

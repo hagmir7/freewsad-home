@@ -20,7 +20,7 @@ export default function Search() {
     return (
         <div className="py-4 text-center col-md-7 ">
             <img loading='lazy' className='lazy' src="/assets/img/freewsad-item.webp" alt="freewsad search" width='auto' height="auto" />
-            <div className="position-relative">
+            <div className="position-relative" >
                 <label htmlFor="search" className="w-100 form-control shadow-sm rounded-pill">
                     <div className="input-group rounded-pill">
                         <span className="input-group-text border-0 bg-white pe-1">
