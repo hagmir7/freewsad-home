@@ -112,7 +112,7 @@ export default function Header() {
             }
 
           </div>
-          <span onClick={() => {setSearch(true); setTimeout(()=> {document.querySelector('#search').focus()}, 100)}} className="navbar-toggler border-0 mt-2 p-0">
+          <span onClick={() => {setSearch(true)}} className="navbar-toggler border-0 mt-2 p-0">
              <span className="d-none">{t("Searhc")}</span><SearchOutlined />
           </span>
           

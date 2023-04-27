@@ -33,7 +33,7 @@ export default function PostCards() {
     const loadMore = () => {
         setPage(currnetPage => {
             loadPosts(currnetPage);
-            return currnetPage + 2;
+            return currnetPage + 1;
         })
     }
 
