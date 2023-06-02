@@ -11,8 +11,6 @@ if(coockies.get("i18next")){
 }
 
 
-
-
 export default axios.create({
   baseURL: `${process.env.REACT_APP_API}/${lang}/api` 
 });

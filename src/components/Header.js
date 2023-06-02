@@ -29,8 +29,6 @@ export default function Header() {
 
 
 
-
-
   const items = [
     {
       label: User ? <Link to={User.username} className="ant-dropdown-trigger d-flex"><UserOutlined className='mt-1' /> &#xa0;{t("Profile")}</Link> : '',

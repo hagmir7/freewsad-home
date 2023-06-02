@@ -6,7 +6,6 @@ import coockies from 'js-cookie';
 import React, { useEffect } from 'react';
 import Lang from './components/Lang';
 import AdBlock from './components/AdBlock';
-import Referal from './components/Referal';
 
 
 
@@ -22,7 +21,6 @@ function App() {
         <div className='col-12 col-md-6 col-lg-3 col-xl-3'>
           <Lang />
           <AdBlock />
-          <Referal />
         </div>
       </div>
       <Urls />
