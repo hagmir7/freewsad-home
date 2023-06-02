@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function BookCardComponent(props) {
+export default function BookCardComponent(props) { 
     return (
         <div className="book-card col-6 col-sm-6 col-md-3 col-lg-3 col-xl-2 mt-2 px-2" key={props.slug}>
             <div className="card card-book shadow-sm overflow-hidden h-100 m-0">
