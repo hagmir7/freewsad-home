@@ -201,53 +201,14 @@ export const Book = () => {
                     </ul>
                   </div>
                   <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
-                  <h2 className="h4 p-0 m-0 mt-3">{t("Download book")}</h2>
-                  {IsSubscribe ? ( "" ) : (
-                    <label htmlFor="email" className="mt-1 p-0">
-                      {t("Please Enter your email to download")}
-                    </label>
-                  )}
-                  <div className="row p-0">
-                    <span ref={msg} className="text-danger"></span>
-                    {IsSubscribe || User ? (
-                      <div className="col-md-12  text-center mt-3">
+                  {/* Download book */}
+                  <div className="col-md-12  text-center mt-3">
                         <a
                           href={data.file}
                           className="btn border-0 btn-success rounded-pill w-75 ms-1"
                         >
                           {t("Download Book")}
                         </a>
-                      </div>
-                    ) : (
-                      <>
-                        <div className="col-md-12 col-lg-6 col-xl-6">
-                          <input
-                            onChange={(e) => {
-                              setEmail(e.target.value);
-                              msg.current.innerHTML = "";
-                            }}
-                            type="email"
-                            placeholder={t("Enter you email")}
-                            className="form-control rounded-pill"
-                          />
-                        </div>
-
-                        <div className="col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0">
-                          <button
-                            onClick={seveEmail}
-                            className="btn border-0 btn-success rounded-pill w-75 ms-1"
-                          >
-                            {!sniper ? (t("Download Book")) : (
-                              <div
-                                className="spinner-border"
-                                style={{ height: "20px", width: "20px" }}
-                                role="status"
-                              ></div>
-                            )}
-                          </button>
-                        </div>
-                      </>
-                    )}
                   </div>
                   <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                 </div>
