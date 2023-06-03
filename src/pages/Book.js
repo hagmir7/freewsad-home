@@ -202,7 +202,7 @@ export const Book = () => {
                   </div>
                   <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                   {/* Download book */}
-                  <div className="col-md-12  text-center mt-3">
+                  <div className="col-md-12 text-center">
                         <a
                           download={true}
                           href={data.file}

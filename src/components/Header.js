@@ -104,7 +104,7 @@ export default function Header() {
 
                 <Dropdown menu={{ items,  }} trigger={['click']} >
                   <a onClick={(e) => e.preventDefault()} href="#!">
-                    <Space> <img src={User.avatar} width="40px" loading="eager" height="40" className="cover border rounded-pill pointer" title={User.username} alt={User.username} /></Space>
+                    <Space> <img src={`${process.env.REACT_APP_API}${User.avatar}`} width="40px" loading="eager" height="40" className="cover border rounded-pill pointer" title={User.username} alt={User.username} /></Space>
                   </a>
                 </Dropdown>
             }
