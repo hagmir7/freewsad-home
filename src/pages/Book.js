@@ -113,7 +113,7 @@ export const Book = () => {
                   <div className="col-12 col-md-12 col-lg-3 col-xl-3 p-0 ">
                     <div className="card book-img overflow-hidden m-auto">
                       <img
-                        onLoad={(e) => (e.target.src = data.image)}
+                        onLoad={(e) => (e.target.src = `${process.env.REACT_APP_API}${data.image}`)}
                         src="/assets/img/book-placeholder.png"
                         alt={data.name}
                         width="100%"

@@ -100,6 +100,10 @@ export const AuthProvider = ({ children }) => {
         setSniper(true);
         const data = new FormData(event.target)
         await API.post('register', data, {
+            headers: {
+                "Content-Type": 'application/json'
+            }
+        }, {
         }).then(respons => {
             login(data.get('username'), data.get('password'))
             setSniper(false);
