@@ -204,7 +204,9 @@ export const Book = () => {
                   {/* Download book */}
                   <div className="col-md-12  text-center mt-3">
                         <a
+                          download={true}
                           href={data.file}
+                          target='_blanck'
                           className="btn border-0 btn-success rounded-pill w-75 ms-1"
                         >
                           {t("Download Book")}
