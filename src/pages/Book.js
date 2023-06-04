@@ -200,7 +200,8 @@ export const Book = () => {
                       </li>
                     </ul>
                   </div>
-                  <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
+                  <div className='mt-2'></div>
+                  <GoogleAd  slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                   {/* Download book */}
                   <div className="col-md-12 text-center">
                         <a

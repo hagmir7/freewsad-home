@@ -6,16 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { message } from 'antd';
 
 
-
-
 export default function PostCards() {
-
-    const image = ''
-    const imageURL = ''
-    const imagePlaceholer = "new image"
-
-
-
 
 
     React.useEffect(() => {
@@ -53,13 +44,13 @@ export default function PostCards() {
 
 
     const loadPosts = async (page_number) => {
-
         await api.get('/', {
             headers: {
                 'Content-Type': 'application/json'
             },
             params: { page: page_number }
         }).then(respons => {
+
             if (respons.data.has_next) {
                 setData(prevList => {
                     setSpener(false);
@@ -75,7 +66,13 @@ export default function PostCards() {
 
                 })
             } else {
-      
+
+                setData(prevList => {
+                    return [...new Set([...prevList, respons.data.data.map((item, index) => {
+                        return (<PostCard title={item.title} key={item.slug} image={item.image ? item.image : item.imageURL ? item.imageURL : '/assets/img/placholder.png'} slug={item.slug} />)
+                    })])]
+
+                })
                 setSpener(true);
 
             }
@@ -100,7 +97,7 @@ export default function PostCards() {
                         <div className="spinner-border" role="status"></div>
                     </div>
                     :
-                    <div className='my-3 d-flex justify-content-center'>                    
+                    <div className='my-3 d-flex justify-content-center'>
                         <a className="border btn rounded-pill mx-2  disabled bg-white w-50">{t("This is All")}</a>
                     </div>
             }

@@ -13,7 +13,7 @@ i18n
   .use(HttpApi)
   .init({
 
-    supportedLngs: ['en', 'ar'],
+    supportedLngs: ['en', 'ar', 'fr', 'es'],
     fallbackLng: "en",
 
     detection: {

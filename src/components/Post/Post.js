@@ -45,7 +45,7 @@ export default function Post() {
                             <article className="blog-post" style={{ height: 'auto!important' }}>
                                 <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
                                 <h1 dir="auto" className="blog-post-title h4 mt-2">{data.title}</h1>
-                                <p dir="auto" className="text-left h6 text-muted">At {data.date} </p>
+                                <p dir="auto" className="text-left h6 text-muted">{t("At")} {data.date} </p>
                                 <div dangerouslySetInnerHTML={{ __html: data.body }} />
                                 <div>
                                 </div>

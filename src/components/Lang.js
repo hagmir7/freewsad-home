@@ -14,6 +14,14 @@ const languages = [
         name: 'العربية',
         dir: 'rtl'
     },
+    {
+        code: 'es',
+        name: 'Español '
+    },
+    {
+        code: 'fr',
+        name: 'Français '
+    },
 
 
 ]

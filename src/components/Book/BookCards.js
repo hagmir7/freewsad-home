@@ -9,7 +9,7 @@ import NotFound from '../../pages/404';
 
 
 export default function BookCards() {
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
 
     const { category } = useParams();
 
@@ -73,7 +73,7 @@ export default function BookCards() {
             <div className='d-flex justify-content-center'>
                 <button onClick={loadMore} className={hasNext ? 'btn btn-primary mt-3 px-5 rounded-pill':'btn bg-white disabled mt-3 border-0 w-25 rounded-pill' }>
                     {
-                        ! sniper ?  hasNext ? "Load More": 'This is All' : <div className="spinner-border" style={{ height: '25px', width: "25px"}} role="status"></div>
+                        ! sniper ?  hasNext ? "Load More": t('This is All') : <div className="spinner-border" style={{ height: '25px', width: "25px"}} role="status"></div>
                     }
                 </button>
 
