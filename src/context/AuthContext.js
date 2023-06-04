@@ -95,17 +95,14 @@ export const AuthProvider = ({ children }) => {
 
 
     const register = async (event) => {
+        
         setMessage('')
         event.preventDefault();
         setSniper(true);
         const data = new FormData(event.target)
-        await API.post('register', data, {
-            headers: {
-                "Content-Type": 'application/json'
-            }
-        }, {
+        await API.post('https://freesad.com/ar/api/register', data, {
         }).then(respons => {
-            login(data.get('username'), data.get('password'))
+            // login(data.get('username'), data.get('password'))
             setSniper(false);
         }).catch(error => {
             setSniper(false);

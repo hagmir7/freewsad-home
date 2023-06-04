@@ -205,7 +205,7 @@ export const Book = () => {
                   <div className="col-md-12 text-center">
                         <a
                           download={true}
-                          href={data.file}
+                          href={`${process.env.REACT_APP_API}${data.file}` }
                           target='_blanck'
                           className="btn border-0 btn-success rounded-pill w-75 ms-1"
                         >

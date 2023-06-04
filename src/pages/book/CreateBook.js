@@ -60,6 +60,7 @@ export default function CreateBook() {
             e.target.reset();
         })
         .catch((error) => {
+            console.log(error);
             message.error(error.message);
             setSpinner(false);
         } );
