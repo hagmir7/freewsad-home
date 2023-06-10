@@ -1,33 +1,30 @@
-import React from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate, useParams } from 'react-router-dom'
-import API from '../api/API'
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import coockies from 'js-cookie';
+import API from '../api/API';
 import GoogleAd from '../components/ads/GoogleAd';
 import BookCards from '../components/Book/BookCards';
 import PostDetailLoading from '../components/Post/PostDetailLoading';
 import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
 import NotFound from './404';
-import coockies from 'js-cookie';
 import ShearModal from '../components/Book/ShearModal';
 
 export const Book = () => {
 
-    const IsSubscribe = localStorage.getItem('email') || localStorage.getItem("authTokens") ? true : false;
+    const IsSubscribe = Boolean(localStorage.getItem('email') || localStorage.getItem('authTokens'));
     const { t } = useTranslation()
-    const { User } = React.useContext(AuthContext);
+    const { User } = useContext(AuthContext);
     const history = useNavigate();
     const { id, slug } = useParams();
-    const [data, setData] = React.useState(null);
-    const [email, setEmail] = React.useState('');
-    const [sniper, setSniper] = React.useState(false);
-    const [ error, setError ] = React.useState(false);
+    const [book, setBook] = useState(null);
+    const [email, setEmail] = useState('');
+    const [sniper, setSniper] = useState(false);
+    const [ error, setError ] = useState(false);
 
 
-    React.useEffect(() => {
-        getBook();
-        window.scrollTo(0,0);
-    }, [id, slug])
+ 
 
     const options = {
       year: 'numeric',
@@ -42,23 +39,27 @@ export const Book = () => {
 
 
 
-  const msg = React.useRef();
+  const msg = useRef();
 
-  const getBook = async () => {
-    if (id || slug) {
-      await API.get(`book/${id ? id : slug}`, {
-        headers: { 'Content-Type': 'application/json'}
-      })
-        .then(respons => setData(respons.data))
-        .catch(error =>{
-          setError(true);
-          
-        })
-    } else {
-      history('/books')
+  const fetchBook = async () => {
+    try {
+      if (id || slug) {
+        const response = await API.get(`book/${id ? id : slug}`, {
+          headers: { 'Content-Type': 'application/json' }
+        });
+        setBook(response.data);
+      } else {
+        history('/books');
+      }
+    } catch (error) {
+      setError(true);
     }
+  };
 
-  }
+  useEffect(() => {
+    fetchBook();
+    window.scrollTo(0, 0);
+  }, [id, slug]);
 
 
     const validateEmail = (email) => {
@@ -74,7 +75,7 @@ export const Book = () => {
             }).then(respons => {
                 if(validateEmail(email)){
                     localStorage.setItem('email', true);
-                    window.location.replace(data.file);
+                    window.location.replace(book.file);
                     setSniper(false);
                 }else{
                     msg.current.innerHTML = t("Your email is not valid!");
@@ -102,20 +103,20 @@ export const Book = () => {
             className="col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0 p-1"
             style={{ height: "auto!important" }}
           >
-            {data === null ? error ? <NotFound /> : ( <PostDetailLoading /> )   : (
+            {book === null ? error ? <NotFound /> : ( <PostDetailLoading /> )   : (
               <article
                 className="blog-post"
                 style={{ height: "auto!important" }}
               >
-                <h1 dir="auto" className="blog-post-title h5 mt-2">  {data.name} </h1>
+                <h1 dir="auto" className="blog-post-title h5 mt-2">  {book.name} </h1>
 
                 <div className="row mx-1">
                   <div className="col-12 col-md-12 col-lg-3 col-xl-3 p-0 ">
                     <div className="card book-img overflow-hidden m-auto">
                       <img
-                        onLoad={(e) => (e.target.src = `${process.env.REACT_APP_API}${data.image}`)}
+                        onLoad={(e) => (e.target.src = `${process.env.REACT_APP_API}${book.image}`)}
                         src="/assets/img/book-placeholder.png"
-                        alt={data.name}
+                        alt={book.name}
                         width="100%"
                         height="auto"
                       />
@@ -124,21 +125,11 @@ export const Book = () => {
                   <div className="col-12 col-lg-9 col-sm-12 p-0 mt-2 mt-lg-0 ps-lg-3 ">
                     <h2 className="h4 p-0 m-0 d-sm-none">{t("About Book")}</h2>
                     <ul className="list-group pe-0 pe-md-3">
-                      {/* <li className="list-group-item d-flex justify-content-between align-items-center">
-                        {t("Name")}
-                        <span
-                          className="w-75 fs-6 p-1 text-center"
-                          dir="auto"
-                          lang="auto"
-                        >
-                          {data.name}
-                        </span>
-                      </li> */}
-                      {!data.author ? ("") : (
+                      {!book.author ? ("") : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Author")}
                           <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                            {data.author}
+                            {book.author}
                           </span>
                         </li>
                       )}
@@ -146,13 +137,13 @@ export const Book = () => {
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("File type")}
                         <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {data.book_type ? data.book_type : data.file_type}
+                          {book.book_type ? book.book_type : book.file_type}
                         </span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Language")}
                         <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {data.language}
+                          {book.language.name}
                         </span>
                       </li>
 
@@ -161,33 +152,33 @@ export const Book = () => {
                         <span dir='auto' className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
                           {new Intl.NumberFormat(coockies.get("i18next"), {
                             notation: 'compact',
-                          }).format(data.views)}
+                          }).format(book.views)}
                         </span>
                       </li>
 
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Pages")}
                         <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {data.pages}
+                          {book.pages}
                         </span>
                       </li>
 
-                      {!data.category ? ("") : (
+                      {!book.category ? ("") : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Category")}
-                          <Link to={`/books/${data.category}`.toLocaleLowerCase()}
+                          <Link to={`/books/${book.category.slug ? book.category.slug : book.category.id}`.toLocaleLowerCase()}
                           className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1" dir='auto'
                           >
-                              {data.category}
+                            {book.category.name}
                           </Link>
                         </li>
                       )}
 
-                      {!data.size ? ("") : (
+                      {!book.size ? ("") : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Size")}
                           <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1" dir='auto'>
-                            {data.size}
+                            {book.size}
                           </span>
                         </li>
                       )}
@@ -195,7 +186,7 @@ export const Book = () => {
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Date")}
                         <span dir='auto' className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {new Intl.DateTimeFormat(coockies.get("i18next"), options).format(new Date(data.date))}
+                          {new Intl.DateTimeFormat(coockies.get("i18next"), options).format(new Date(book.date))}
                         </span>
                       </li>
                     </ul>
@@ -206,7 +197,7 @@ export const Book = () => {
                   <div className="col-md-12 text-center">
                         <a
                           download={true}
-                          href={`${process.env.REACT_APP_API}${data.file}` }
+                          href={`${process.env.REACT_APP_API}${book.file}` }
                           target='_blanck'
                           className="btn border-0 btn-success rounded-pill w-75 ms-1"
                         >
@@ -220,16 +211,16 @@ export const Book = () => {
                   className="mt-2"
                   dir="auto"
                   lang="auto"
-                  dangerouslySetInnerHTML={{ __html: data.description }}
+                  dangerouslySetInnerHTML={{ __html: book.description }}
                 />
-                <ShearModal title={data.name} />
+                <ShearModal title={book.name} />
 
                 <SEO
-                  title={data.name}
-                  description={data.description.slice(150)}
+                  title={book.name}
+                  description={book.description.slice(150)}
                   name="freewsad.com"
                   type="article"
-                  image={data.image}
+                  image={book.image}
                   url={`https://www.freewsad.com/book/${id}`}
                   canonical={`/book/${id}`}
                 /> 

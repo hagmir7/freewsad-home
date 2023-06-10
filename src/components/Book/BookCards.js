@@ -37,8 +37,10 @@ export default function BookCards() {
 
 
     const loadBooks = async (pageNumber) => {
-        const url = `books${category ? "/"+category : ''}`
-        await API.get(url, {
+
+        const categoryUrl = `books/category/${category}`;
+        const bookUrl = `books/`
+        await API.get(category ? categoryUrl : bookUrl, {
             headers: {
                 'Content-Type': 'application/json'
             },
