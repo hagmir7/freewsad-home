@@ -35,6 +35,8 @@ export const Book = () => {
 
     
 
+    const message = React.useRef();
+
 
 
 
@@ -75,7 +77,7 @@ export const Book = () => {
             }).then(respons => {
                 if(validateEmail(email)){
                     localStorage.setItem('email', true);
-                    window.location.replace(book.file);
+                    window.open(`${process.env.REACT_APP_API}${book.file}`, '_blank');
                     setSniper(false);
                 }else{
                     msg.current.innerHTML = t("Your email is not valid!");
@@ -103,18 +105,29 @@ export const Book = () => {
             className="col-12 col-md-7 col-lg-8 col-xl-8 mb-3 m-0 p-1"
             style={{ height: "auto!important" }}
           >
-            {book === null ? error ? <NotFound /> : ( <PostDetailLoading /> )   : (
+            {book === null ? (
+              error ? (
+                <NotFound />
+              ) : (
+                <PostDetailLoading />
+              )
+            ) : (
               <article
                 className="blog-post"
                 style={{ height: "auto!important" }}
               >
-                <h1 dir="auto" className="blog-post-title h5 mt-2">  {book.name} </h1>
+                <h1 dir="auto" className="blog-post-title h5 mt-2">
+                  {" "}
+                  {book.name}{" "}
+                </h1>
 
                 <div className="row mx-1">
                   <div className="col-12 col-md-12 col-lg-3 col-xl-3 p-0 ">
                     <div className="card book-img overflow-hidden m-auto">
                       <img
-                        onLoad={(e) => (e.target.src = `${process.env.REACT_APP_API}${book.image}`)}
+                        onLoad={(e) =>
+                          (e.target.src = `${process.env.REACT_APP_API}${book.image}`)
+                        }
                         src="/assets/img/book-placeholder.png"
                         alt={book.name}
                         width="100%"
@@ -125,7 +138,9 @@ export const Book = () => {
                   <div className="col-12 col-lg-9 col-sm-12 p-0 mt-2 mt-lg-0 ps-lg-3 ">
                     <h2 className="h4 p-0 m-0 d-sm-none">{t("About Book")}</h2>
                     <ul className="list-group pe-0 pe-md-3">
-                      {!book.author ? ("") : (
+                      {!book.author ? (
+                        ""
+                      ) : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Author")}
                           <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
@@ -149,9 +164,12 @@ export const Book = () => {
 
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Downloads")}
-                        <span dir='auto' className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
+                        <span
+                          dir="auto"
+                          className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1"
+                        >
                           {new Intl.NumberFormat(coockies.get("i18next"), {
-                            notation: 'compact',
+                            notation: "compact",
                           }).format(book.views)}
                         </span>
                       </li>
@@ -163,21 +181,34 @@ export const Book = () => {
                         </span>
                       </li>
 
-                      {!book.category ? ("") : (
+                      {!book.category ? (
+                        ""
+                      ) : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Category")}
-                          <Link to={`/books/${book.category.slug ? book.category.slug : book.category.id}`.toLocaleLowerCase()}
-                          className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1" dir='auto'
+                          <Link
+                            to={`/books/${
+                              book.category.slug
+                                ? book.category.slug
+                                : book.category.id
+                            }`.toLocaleLowerCase()}
+                            className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1"
+                            dir="auto"
                           >
                             {book.category.name}
                           </Link>
                         </li>
                       )}
 
-                      {!book.size ? ("") : (
+                      {!book.size ? (
+                        ""
+                      ) : (
                         <li className="list-group-item d-flex justify-content-between align-items-center">
                           {t("Size")}
-                          <span className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1" dir='auto'>
+                          <span
+                            className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1"
+                            dir="auto"
+                          >
                             {book.size}
                           </span>
                         </li>
@@ -185,26 +216,80 @@ export const Book = () => {
 
                       <li className="list-group-item d-flex justify-content-between align-items-center">
                         {t("Date")}
-                        <span dir='auto' className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1">
-                          {new Intl.DateTimeFormat(coockies.get("i18next"), options).format(new Date(book.date))}
+                        <span
+                          dir="auto"
+                          className="badge bg-primary rounded-pill w-75 fs-6 fw-normal p-1"
+                        >
+                          {new Intl.DateTimeFormat(
+                            coockies.get("i18next"),
+                            options
+                          ).format(new Date(book.date))}
                         </span>
                       </li>
                     </ul>
                   </div>
-                  <div className='mt-2'></div>
-                  <GoogleAd  slot="4567237334" googleAdId="ca-pub-6043226569102012" />
+                  <div className="mt-2"></div>
+                  <GoogleAd
+                    slot="4567237334"
+                    googleAdId="ca-pub-6043226569102012"
+                  />
                   {/* Download book */}
-                  <div className="col-md-12 text-center">
+                  <h2 className="h4 p-0 m-0 mt-3">{t("Download book")}</h2>
+                  {IsSubscribe ? (
+                    ""
+                  ) : (
+                    <label htmlFor="email" className="mt-1 p-0">
+                      {t("Please Enter your email to download")}
+                    </label>
+                  )}
+                  <div className="row p-0">
+                    <span ref={message} className="text-danger"></span>
+                    {IsSubscribe || User ? (
+                      <div className="col-md-12  text-center mt-3">
                         <a
-                          download={true}
-                          href={`${process.env.REACT_APP_API}${book.file}` }
-                          target='_blanck'
+                          href={`${process.env.REACT_APP_API}${book.file}`}
                           className="btn border-0 btn-success rounded-pill w-75 ms-1"
                         >
                           {t("Download Book")}
                         </a>
+                      </div>
+                    ) : (
+                      <>
+                        <div className="col-md-12 col-lg-6 col-xl-6">
+                          <input
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                              message.current.innerHTML = "";
+                            }}
+                            type="email"
+                            placeholder={t("Enter you email")}
+                            className="form-control rounded-pill"
+                          />
+                        </div>
+
+                        <div className="col-md-12 col-lg-6 col-xl-6 text-center mt-md-3 mt-3 mt-xl-0 mt-lg-0">
+                          <button
+                            onClick={seveEmail}
+                            className="btn border-0 btn-success rounded-pill w-75 ms-1"
+                          >
+                            {!sniper ? (
+                              t("Download Book")
+                            ) : (
+                              <div
+                                className="spinner-border"
+                                style={{ height: "20px", width: "20px" }}
+                                role="status"
+                              ></div>
+                            )}
+                          </button>
+                        </div>
+                      </>
+                    )}
                   </div>
-                  <GoogleAd slot="4567237334" googleAdId="ca-pub-6043226569102012" />
+                  <GoogleAd
+                    slot="4567237334"
+                    googleAdId="ca-pub-6043226569102012"
+                  />
                 </div>
                 <h3 className="h4 p-0 m-0 mt-2">{t("Description")}</h3>
                 <div
@@ -223,7 +308,7 @@ export const Book = () => {
                   image={book.image}
                   url={`https://www.freewsad.com/book/${id}`}
                   canonical={`/book/${id}`}
-                /> 
+                />
               </article>
             )}
           </div>
@@ -242,9 +327,13 @@ export const Book = () => {
               <div className="p-2 mt-3 bg-light card shadow-sm border">
                 <span className="h4 p-1">{t("Copyrights")}</span>
                 <div>
-                  {t("copyrights_text")} <Link to="/contact">{t("Contact Us")}</Link>,
-                  {" "} {t("or by email at")} : {" "}
-                  <a href="mailto:support@freewsad.com"> support@freewsad.com.</a>
+                  {t("copyrights_text")}{" "}
+                  <Link to="/contact">{t("Contact Us")}</Link>,{" "}
+                  {t("or by email at")} :{" "}
+                  <a href="mailto:support@freewsad.com">
+                    {" "}
+                    support@freewsad.com.
+                  </a>
                 </div>
                 <Link to="/about">{t("Read More")}</Link>
               </div>
