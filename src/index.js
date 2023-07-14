@@ -5,21 +5,8 @@ import { BrowserRouter, } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async';
 import { AuthProvider } from './context/AuthContext';
 import "./i18nextConf";
-import { Spin, Space } from 'antd';
+import CustomLoading from './components/CustomLoadin';
 
-
-
-
-
-const loadingarkup = (
-    <div className='w-100 landig bg-light d-flex justify-content-center align-items-center'>
-        <div>
-            <Space size="large">
-                <Spin size="large" />
-            </Space>
-        </div>
-    </div>
-)
 
 
 
@@ -31,13 +18,18 @@ const loadingarkup = (
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <HelmetProvider>
-        <BrowserRouter>
-            <AuthProvider>
-                <Suspense fallback={loadingarkup}>
+
+        
+
+            <Suspense fallback={CustomLoading}>
+                <BrowserRouter>
+                <AuthProvider>
                     <App />
-                </Suspense>
-            </AuthProvider>
-        </BrowserRouter>
+
+                </AuthProvider>
+                </BrowserRouter>
+            </Suspense>
+
     </HelmetProvider>
 
 

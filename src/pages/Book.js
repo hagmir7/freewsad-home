@@ -235,6 +235,7 @@ export const Book = () => {
                   />
                   {/* Download book */}
                   <h2 className="h4 p-0 m-0 mt-3">{t("Download book")}</h2>
+                    <div ref={msg} className='text-danger p-0'></div>
                   {IsSubscribe ? (
                     ""
                   ) : (
@@ -243,7 +244,7 @@ export const Book = () => {
                     </label>
                   )}
                   <div className="row p-0">
-                    <span ref={message} className="text-danger"></span>
+                    <span className="text-danger"></span>
                     {IsSubscribe || User ? (
                       <div className="col-md-12  text-center mt-3">
                         <a

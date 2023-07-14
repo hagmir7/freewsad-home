@@ -6,7 +6,6 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 
 
-
 i18n
   .use(LanguageDetector) // detect user language
   .use(initReactI18next)
@@ -18,10 +17,12 @@ i18n
 
     detection: {
         checkWhitelist: true, // options for language detection
-        order: ['subdomain', 'path','cookie','htmlTage','querystring', 'navigator', 'localStorage'],
+        order: ['path','subdomain','cookie','htmlTage','querystring', 'navigator', 'localStorage'],
         lookupQuerystring: 'lng',
         caches: ['cookie'],
     },
+
+  
 
     debug: false,
 
@@ -33,6 +34,10 @@ i18n
 
     backend:{
         loadPath: '/locales/{{lng}}/translation.json',
+    },
+
+    react: {
+      useSuspense: true, // Set to true if using Suspense
     },
   });
 

@@ -1,12 +1,12 @@
 import './App.css';
-import Footer from './components/Footer';
-import Header from './components/Header';
+import React, { lazy, useEffect } from 'react';
 import Urls from './routs/Urls';
 import coockies from 'js-cookie';
-import React, { useEffect } from 'react';
 import Lang from './components/Lang';
 import AdBlock from './components/AdBlock';
 
+const Footer = lazy(() => import('./components/Footer'));
+const Header = lazy(() => import('./components/Header'));
 
 
 function App() {
