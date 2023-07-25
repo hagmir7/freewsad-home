@@ -24,7 +24,7 @@ export default function SearchBook(props) {
             await API.get('/book', {
                 params: { 'q': value }
             }).then(response => {
-                setBook(response.data.map(item => (<Link key={item.id} to={`/book/${item.id}`} dir="auto" className="list-group-item list-group-item-action">{item.name}</Link>)))
+                setBook(response.data.map(item => (<Link key={item.id} to={`/book/${item.slug}`} dir="auto" className="list-group-item list-group-item-action">{item.name}</Link>)))
             }).catch(error => {
                 message.error(error.message)
             })
@@ -34,7 +34,7 @@ export default function SearchBook(props) {
     return (
         <div className="px-2  w-100 overflow-hidden ">
 
-            <div className="input-group p-0 m-0" style={coockies.get("i18next") == 'ar' ? {flexDirection: 'row-reverse'} : {}}>
+            <div className="input-group p-0 m-0" style={coockies.get("i18next") == 'ar' ? { flexDirection: 'row-reverse', zIndex: 99 } : { zIndex: 99 }}>
                 <span className="input-group-text" style={{ zIndex: 99 }} onClick={() => (focus.current.focus())} id="basic-addon1"><SearchOutlined /></span>
                 <input
                     onChange={Search}
