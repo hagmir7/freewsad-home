@@ -223,7 +223,7 @@ export const Book = () => {
                           {new Intl.DateTimeFormat(
                             coockies.get("i18next"),
                             options
-                          ).format(new Date(book.date))}
+                            ).format(new Date(book.created_at))}
                         </span>
                       </li>
                     </ul>
