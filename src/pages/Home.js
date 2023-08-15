@@ -9,9 +9,8 @@ export default function Home() {
   return (
     <div className='container'>
       <h1 hidden>Freewsad - The best website for Education.</h1>
-
       <div className='mt-3'>
-      <BookCards />
+        <BookCards />
       </div>
 
 

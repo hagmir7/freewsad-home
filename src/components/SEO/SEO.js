@@ -11,15 +11,16 @@ export default function SEO(props) {
             <meta property="og:type" content={props.type} />
             <meta property="og:title" content={props.title} />
             <meta property="og:description" content={props.description} />
-
             <meta property="og:url" content={props.url} />
             <meta property="og:image" content={props.image} />
             { /* End Facebook tags */}
+            
             { /* Twitter tags */}
             <meta name="twitter:creator" content={props.name} />
             <meta name="twitter:card" content={props.type} />
             <meta name="twitter:title" content={props.title} />
             <meta name="twitter:description" content={props.description} />
+            <meta name="twitter:image" content={props.image} />
             { /* End Twitter tags */}
             <link rel='canonical' href={props.canonical} />
         </Helmet>

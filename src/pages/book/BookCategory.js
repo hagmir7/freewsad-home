@@ -10,9 +10,6 @@ export default function BookCategory() {
     <div>
       <h1 hidden>Download Free {category} Books - Freewsad</h1>
       <BookCards />
-
-
-
       <SEO
         title={`Download Free ${category} Books - Freewsad`}
         description="You can enjoy the Books and Courses you love and download the original content, and share it all with your friends in FreeWsad."

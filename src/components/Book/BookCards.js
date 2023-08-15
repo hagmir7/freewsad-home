@@ -75,7 +75,7 @@ export default function BookCards(props) {
       <div className="container-xxl">
         <div className='mt-3'>
           <Link
-            className={`btn btn-sm mx-2 fw-normal border ${
+            className={`btn btn-sm fw-normal border ${
               props.url === "books/new" ? "btn-default" : "btn-primary"
             }`}
             to="/books/new"
@@ -91,12 +91,19 @@ export default function BookCards(props) {
             {t("Trending books")}
           </Link>
           <Link
-            className={`btn btn-sm mx-2 fw-normal border ${
+            className={`btn btn-sm fw-normal border mx-2 ${
               props.url === "books/" ? "btn-default" : "btn-primary"
             }`}
             to="/books/"
           >
             {t("Best books")}
+          </Link>
+
+          <Link
+            className="btn btn-sm fw-normal border btn-primary"
+            to="/books/categories"
+          >
+            {t("Categories")}
           </Link>
         </div>
 

@@ -6,10 +6,10 @@ import API from '../api/API';
 import GoogleAd from '../components/ads/GoogleAd';
 import BookCards from '../components/Book/BookCards';
 import PostDetailLoading from '../components/Post/PostDetailLoading';
-import SEO from '../components/SEO/SEO';
 import AuthContext from '../context/AuthContext';
 import NotFound from './404';
 import ShearModal from '../components/Book/ShearModal';
+import { Helmet } from 'react-helmet-async';
 
 export const Book = () => {
 
@@ -301,15 +301,28 @@ export const Book = () => {
                 />
                 <ShearModal title={book.name} />
 
-                <SEO
-                  title={book.name}
-                  description={book.description.slice(150)}
-                  name="freewsad.com"
-                  type="article"
-                  image={book.image}
-                  url={`https://www.freewsad.com/book/${id}`}
-                  canonical={`/book/${id}`}
-                />
+                  <Helmet>
+                    { /* Standard metadata tags */}
+                    <title>{book.name}</title>
+                    <meta name='description' content={book.description} />
+                    { /* End standard metadata tags */}
+                    { /* Facebook tags */}
+                    <meta property="og:type" content="Article" />
+                    <meta property="og:title" content={book.name} />
+                    <meta property="og:description" content={book.description} />
+                    <meta property="og:url" content={`/book/${book.slug}`} />
+                    <meta property="og:image" content={book.image} />
+                    { /* End Facebook tags */}
+
+                    { /* Twitter tags */}
+                    <meta name="twitter:creator" content={book.name} />
+                    <meta name="twitter:card" content="Article" />
+                    <meta name="twitter:title" content={book.name} />
+                    <meta name="twitter:description" content={book.description} />
+                    <meta name="twitter:image" content={book.image} />
+                    { /* End Twitter tags */}
+                    <link rel='canonical' href={`/book/${book.slug}`} />
+                  </Helmet>
               </article>
             )}
           </div>
