@@ -1,8 +1,6 @@
-import React from 'react';
-import PostCards from '../components/Post/PostCards';
+import {lazy ,React} from 'react';
 import SEO from '../components/SEO/SEO';
-
-
+const BookCards = lazy(() => import('../components/Book/BookCards'));
 
 
 
@@ -11,13 +9,9 @@ export default function Home() {
   return (
     <div className='container'>
       <h1 hidden>Freewsad - The best website for Education.</h1>
-      {/* <div className='row d-flex justify-content-center'>
-        <Search />
-      </div> */}
-      {/* <BookCards /> */}
-      <div className='mt-3'>
 
-      <PostCards />
+      <div className='mt-3'>
+      <BookCards />
       </div>
 
 

@@ -12,6 +12,6 @@ if(coockies.get("i18next")){
 
 
 export default axios.create({
-  baseURL: `${process.env.REACT_APP_API}/${lang}/api` ,
+  baseURL: `http://127.0.0.1:8000//${lang}/api` ,
   headers : {'Content-Type': 'multipart/form-data'}
 });

@@ -69,9 +69,6 @@ export default function Header() {
               <Link to='/' className='nav-item mx-4' >
                 <img title="Home" loading="eager" className="nav-icon" src="/assets/new/home.svg" alt="Home" width="30px" height="30px" />
               </Link>
-              <Link to='/books' className='nav-item mx-4' >
-                <img title="Books" loading="eager" className="nav-icon" src="/assets/new/book.png" alt="Books" width="30px" height="30px" />
-              </Link>
 
               <Link to='/blog' className='nav-item mx-4' >
                 <img title="Blog" loading="eager" className="nav-icon" src="/assets/new/post.png" alt="Blog" width="30px" height="30px" />

@@ -6,9 +6,7 @@ export default function Books() {
   return (
     <div>
       <h1 hidden>Download Free Books - Freewsad</h1>
-      <BookCards />
-
-
+      <BookCards url="books/" />
       
       <SEO
         title='Download Free Books - Freewsad'

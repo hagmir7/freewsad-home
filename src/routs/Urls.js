@@ -17,6 +17,8 @@ import CreateFile from '../pages/CreateFile';
 import CreateBook from '../pages/book/CreateBook';
 import { MyEditor } from '../pages/post/CreatePost';
 import BookCategory from '../pages/book/BookCategory';
+import NewBooks from '../pages/book/NewBooks';
+import TrendingBooks from '../pages/book/TrendingBooks';
 
 
 export default function Urls() {
@@ -41,6 +43,8 @@ export default function Urls() {
           <Route path='/create/book' element={<CreateBook />} />
           <Route path='/create/post' element={<MyEditor />} />
           <Route path='/books/:category' element={<BookCategory />} />
+          <Route path='/books/new' element={<NewBooks />} />
+          <Route path='/books/trending' element={<TrendingBooks />} />
         </Routes>
 
     </div>
