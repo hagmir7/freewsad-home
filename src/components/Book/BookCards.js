@@ -23,17 +23,21 @@ export default function BookCards(props) {
 
 
 
-    useEffect(() => {
-        loadBooks();
-    }, [i18n.language, category]);
+  useEffect(() => {
+    // loadBooks(page);
+    loadMore();
+  }, [i18n.language])
 
-    const loadMore = () => {
-        setSniper(true);
-        setPage(currentPage => {
-            loadBooks(currentPage);
-            return currentPage + 1;
-        });
-    };
+
+
+
+  const loadMore = () => {
+    setSniper(true);
+    setPage(currnetPage => {
+      loadBooks(currnetPage);
+      return currnetPage + 1;
+    })
+  }
 
     const loadBooks = async (pageNumber = 1) => {
         try {
