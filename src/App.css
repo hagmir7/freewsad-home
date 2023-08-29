@@ -103,6 +103,10 @@ pre {
     display: flex;
 }
 
+.book-description{
+    white-space: break-spaces;
+}
+
 
 
 

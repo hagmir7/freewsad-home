@@ -294,7 +294,7 @@ export const Book = () => {
                 </div>
                 <h3 className="h4 p-0 m-0 mt-2">{t("Description")}</h3>
                 <div
-                  className="mt-2"
+                  className="mt-2 book-description"
                   dir="auto"
                   lang="auto"
                   dangerouslySetInnerHTML={{ __html: book.description }}
