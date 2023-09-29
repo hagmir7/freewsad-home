@@ -125,7 +125,7 @@ export default function BookCards(props) {
                 role="status"
               ></div>
             ) : hasNext ? (
-              "Load More"
+                t("Load More")
             ) : (
               t("This is All")
             )}
