@@ -7,7 +7,7 @@ export default function TrendingBooks() {
       <div>
         <h1 hidden>Download Free Books - Freewsad</h1>
         <div className="container">
-          <BookCards url="books/trending" />
+          <BookCards url="books" />
         </div>
 
         <SEO
