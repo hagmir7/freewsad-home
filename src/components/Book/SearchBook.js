@@ -33,7 +33,6 @@ export default function SearchBook(props) {
 
     return (
         <div className="px-2  w-100 overflow-hidden ">
-
             <div className="input-group p-0 m-0" style={coockies.get("i18next") == 'ar' ? { flexDirection: 'row-reverse', zIndex: 99 } : { zIndex: 99 }}>
                 <span className="input-group-text" style={{ zIndex: 99 }} onClick={() => (focus.current.focus())} id="basic-addon1"><SearchOutlined /></span>
                 <input

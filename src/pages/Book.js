@@ -170,7 +170,7 @@ export const Book = () => {
                         >
                           {new Intl.NumberFormat(coockies.get("i18next"), {
                             notation: "compact",
-                          }).format(book.views.length)}
+                          }).format(book.views)}
                         </span>
                       </li>
 

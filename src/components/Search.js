@@ -12,11 +12,6 @@ export default function Search() {
         }
     }, [])
 
-
-    
-
-
-
     return (
         <div className="py-4 text-center col-md-7 ">
             <img loading='lazy' className='lazy' src="/assets/img/freewsad-item.webp" alt="freewsad search" width='auto' height="auto" />
